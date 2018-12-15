@@ -10,6 +10,7 @@
 
 # production
 /build
+aws.yml
 
 # misc
 .DS_Store
