@@ -1,8 +1,8 @@
 import React from 'react';
 
-import * as api from '../../lib/api.js';
+import * as api from '../lib/api.js';
 
-export default class From extends React.Component {
+export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,29 +17,43 @@ export default class From extends React.Component {
     await this.setState({first: event.target.value});
   }
 
-  
-  handleSubmit = form => {
-    if(event.target.name === 'first'){
-      // console.log(event.target.value);
-      await this.setState({first:event.target.value});
+  lastNameChange = async event => {
+    await this.setState({last: event.target.value});
+  }
 
-      
+  emailChange = async event => {
+    await this.setState({email: event.target.value});
+  }
+
+  passwordChange = async event => {
+    await this.setState({ password: event.target.value });
+    console.log(this.state);
+  }
+
+  comparePassword = pass => {
+    if(this.state.password === pass) {
+      return true;
+    } else {
+      alert('The passwords you have entered do not match.');
     }
+  }
+
+
+    handleSubmit() {
     
-  };
+    }
 
   render() {
 
     return (
 
-      <form>
+      <form onSubmit={this.handleSubmit} >
 
         First: <input 
         name='first' 
         placeholder = 'First Name' 
         type='text' 
-        noValidate 
-        onChange={this.handleChange}
+        onChange={this.firstNameChange} required
         />
 
 
@@ -47,29 +61,31 @@ export default class From extends React.Component {
         name='last' 
         placeholder = 'Last Name' 
         type='text' 
-        noValidate
-        onChange={this.handleChange}
+        onChange={this.lastNameChange} required
         />
 
 
         Email: <input 
         name='email' 
         placeholder = 'john.doe@example.com' 
-        type='text' 
+        type='email' 
+        onChange={this.emailChange} required
         />
 
 
         Password: <input 
         name='password' 
         type='password' 
+        onChange={this.passwordChange} required
         />
 
 
         Confirm Password: <input 
         type='password' 
+        required
         />
 
-        <button>Sign Me Up</button>
+        <button type='submit'>Sign Me Up</button>
 
       </form>
 
@@ -77,4 +93,5 @@ export default class From extends React.Component {
 
   }
 
-}
+
+};
