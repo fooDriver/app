@@ -13,6 +13,7 @@ export default class Form extends React.Component {
       username: '',
       password: '',
     }
+    
   }
 
   firstNameChange = async event => {
