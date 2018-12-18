@@ -6,41 +6,46 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      first: '',
-      last: '',
-      email: '',
+      firstName: '',
+      lastName: '',
+      username: '',
       password: ''
     }
   }
 
   firstNameChange = async event => {
-    await this.setState({first: event.target.value});
+    await this.setState({firstName: event.target.value});
   }
 
   lastNameChange = async event => {
-    await this.setState({last: event.target.value});
+    await this.setState({lastName: event.target.value});
   }
 
   emailChange = async event => {
-    await this.setState({email: event.target.value});
+    await this.setState({username: event.target.value});
   }
 
   passwordChange = async event => {
     await this.setState({ password: event.target.value });
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   comparePassword = pass => {
     if(this.state.password === pass) {
-      return true;
+      console.log(this.state);
+      superagent.post('https://foodriverdb.herokuapp.com/signup')
+      .set('Content-Type', 'application/json')
+      .send(this.state)
+      return (console.log(this.state), true);
     } else {
       alert('The passwords you have entered do not match.');
     }
   }
 
 
-    handleSubmit() {
-    
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.comparePassword(event.target.confirmPassword.value);
     }
 
   render() {
@@ -81,6 +86,7 @@ export default class Form extends React.Component {
 
 
         Confirm Password: <input 
+        name='confirmPassword'
         type='password' 
         required
         />
