@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import logo from './assets/foodriver.png';
-import './App.css';
+import Nav from './modules/nav.jsx';
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <img src={logo} alt="foodriver logo" />
+        <Nav />
       </React.Fragment>
     );
   }
