@@ -9,12 +9,17 @@ body{
 footer {
   background-color: $secondery-color;
   // background-image: url('../assets/hands.jpg');
-  height:50px;
+  height:70px;
   position:absolute;
   bottom:0;
   width:100%;
+  padding-top:2%;
 }
+
 
 .footerName{
   color:white;
+  font-size: 200%;
+  margin:2%;
+  
 }
