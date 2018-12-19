@@ -1,6 +1,8 @@
 import React from "react";
 import superagent from "superagent";
 
+import MapComponent from "../modules/map";
+
 class RequestDonate extends React.Component {
   constructor(props) {
     super(props);
@@ -193,6 +195,7 @@ class RequestDonate extends React.Component {
           <h3>Pantry {this.state.number} Route</h3>
           <ul>{stops}</ul>
 
+          <MapComponent stops={this.state.stops} />
         </main>
       );
     }
