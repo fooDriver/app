@@ -3,6 +3,7 @@ import logo from '../../assets/foodriver.png';
 import Home from '../pages/home.jsx';
 import About from '../pages/about.jsx';
 import SignUp from '../pages/signup.jsx';
+// import style from '../nav.module.css';
 
 export default class Nav extends React.Component {
   constructor(props) {

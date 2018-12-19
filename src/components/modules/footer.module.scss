@@ -1,0 +1,20 @@
+@import '../styles/variables';
+
+body{
+  font-family: $font-stack-secondary;
+}
+
+
+
+footer {
+  background-color: $secondery-color;
+  // background-image: url('../assets/hands.jpg');
+  height:50px;
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+
+.footerName{
+  color:white;
+}
