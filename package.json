@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "jsonwebtoken": "^8.4.0",
     "node-sass": "^4.11.0",
+    "querystring": "^0.2.0",
     "react": "^16.6.3",
+    "react-cookies": "^0.1.0",
     "react-dom": "^16.6.3",
     "react-google-maps": "^9.4.5",
     "react-jsonschema-form": "^1.0.6",
