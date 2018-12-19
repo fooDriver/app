@@ -1,6 +1,7 @@
 import React from 'react';
 import jwt from 'jsonwebtoken';
 import superagent from 'superagent';
+import Map from '../modules/map.jsx';
 
 //const API = 'http://localhost:3000';
 const API = 'https://foodriverdb.herokuapp.com';
@@ -107,6 +108,7 @@ class Driver extends React.Component {
   }
   
   render() {
+    console.log(this.state.stops);
     if (!this.state.name) {
       return <h2>Loading...</h2>;
     }
@@ -131,6 +133,7 @@ class Driver extends React.Component {
               </li>
             ))}
           </ul>
+          <Map stops={this.state.stops} />
         </React.Fragment>
       );
     }
