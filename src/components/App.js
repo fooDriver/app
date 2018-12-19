@@ -6,6 +6,7 @@ import Driver from './pages/driver.jsx';
 import Auth from './auth/auth.js';
 import Login from './auth/login.js';
 import LoginContext from './auth/context.js';
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 class App extends Component {
   render() {
