@@ -20,6 +20,13 @@ class RequestDonate extends React.Component {
     };
   }
 
+  getToken = (auth) => {
+    let value = "; " + document.cookie;
+    let token = value.split("; " + auth + "=");
+    if (token.length === 2) token = token.pop().split(";").shift();
+    return token;
+  }
+
   changeRequest = e => {
     this.setState({ requestItem: e.target.value });
   };
@@ -27,10 +34,12 @@ class RequestDonate extends React.Component {
   submitRequest = e => {
     e.preventDefault();
 
+    let token = this.getToken('auth');
+
     let request = { food: this.state.requestItem };
     superagent("post", "https://foodriverdb.herokuapp.com/request")
-      .auth("mary@berry.com", "maryberry")
       .send(request)
+      .set('Authorization', `Bearer ${token}`)
       .then(results => {
         this.setState({ requestItem: "" });
       })
@@ -47,14 +56,15 @@ class RequestDonate extends React.Component {
 
   submitDonation = e => {
     e.preventDefault();
+    let token = this.getToken('auth');
 
     let donation = {
       address: this.state.address,
       food: this.state.donationItem
     };
     superagent("post", "https://foodriverdb.herokuapp.com/donation")
-      .auth("mary@berry.com", "maryberry")
       .send(donation)
+      .set('Authorization', `Bearer ${token}`)
       .then(results => {
         this.setState({ donationItem: "", address: "" });
       })
@@ -62,8 +72,7 @@ class RequestDonate extends React.Component {
   };
 
   componentDidMount() {
-    superagent("get", "https://foodriverdb.herokuapp.com/admin/pantries")
-      .auth("mary@berry.com", "maryberry")
+    superagent("get", "https://foodriverdb.herokuapp.com/pantries")
       .then(results => {
         this.setState({
           pantries: results.body,
@@ -73,8 +82,7 @@ class RequestDonate extends React.Component {
       })
       .catch(console.error);
 
-    superagent("get", "https://foodriverdb.herokuapp.com/admin/stops")
-      .auth("mary@berry.com", "maryberry")
+    superagent("get", "https://foodriverdb.herokuapp.com/stops")
       .then(results => {
         let route1 = results.body.filter(obj => obj.route.name === "Route 1");
         this.setState({

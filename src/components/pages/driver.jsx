@@ -32,9 +32,8 @@ class Driver extends React.Component {
   
   componentDidMount() {
     let url = `${API}/driver/driver-routes/${this.getUser()}`;
-    console.log({url});
     let token = this.getToken('auth');
-    console.log(token);
+
     superagent
       .get(url)
       .set('Authorization', `Bearer ${token}`)
