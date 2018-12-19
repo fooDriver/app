@@ -17,6 +17,12 @@ class App extends Component {
           <Auth capability='driver'>
             <Driver />
           </Auth>
+          <Auth capability='client'>
+            <RequestDonate />
+          </Auth>
+          <Auth capability='donator'>
+            <RequestDonate />
+          </Auth>
         </LoginContext>
         <Footer />
       </React.Fragment>

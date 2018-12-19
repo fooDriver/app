@@ -8,12 +8,7 @@ import {
 } from "react-google-maps";
 
 class MapComponent extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    //console.log(this.props.stop);
     let origin;
     let destination;
     let waypoints = [];
@@ -30,8 +25,6 @@ class MapComponent extends React.Component {
         });
       }
     }
-
-    console.log(this.props.stops);
 
     const DirectionsComponent = compose(
       withProps({

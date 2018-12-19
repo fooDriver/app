@@ -1,7 +1,9 @@
 import React from "react";
 import superagent from "superagent";
 
-import MapComponent from "../modules/map";
+import Map from "../modules/map";
+
+import Auth from '../auth/auth.js';
 
 class RequestDonate extends React.Component {
   constructor(props) {
@@ -98,6 +100,7 @@ class RequestDonate extends React.Component {
     if (this.state.pantries === "" || this.state.stops === "") {
       return (
         <main>
+          <Auth capability='client'>
           <form onSubmit={this.submitRequest}>
             <label>Make a request</label>
             <br />
@@ -111,6 +114,8 @@ class RequestDonate extends React.Component {
             <button type="submit">Request!</button>
           </form>
           <br />
+          </Auth>
+          <Auth capability='donator'>
           <form onSubmit={this.submitDonation}>
             <label>Make a donation</label>
             <br />
@@ -131,12 +136,13 @@ class RequestDonate extends React.Component {
             <button type="submit">Donate!</button>
           </form>
           <br />
+          </Auth>
         </main>
       );
     } else {
       let pantryItems = this.state.pantry.pantryItems.map(obj => (
         <li key={obj._id}>
-          <p>{obj.food.food}</p>
+          <p>{obj.quantity} {obj.food.food}</p>
         </li>
       ));
 
@@ -154,6 +160,7 @@ class RequestDonate extends React.Component {
 
       return (
         <main>
+          <Auth capability='client'>
           <form onSubmit={this.submitRequest}>
             <label>Make a request</label>
             <br />
@@ -167,6 +174,8 @@ class RequestDonate extends React.Component {
             <button type="submit">Request!</button>
           </form>
           <br />
+          </Auth>
+          <Auth capability='donator'>
           <form onSubmit={this.submitDonation}>
             <label>Make a donation</label>
             <br />
@@ -187,6 +196,7 @@ class RequestDonate extends React.Component {
             <button type="submit">Donate!</button>
           </form>
           <br />
+          </Auth>
 
           {pantryButtons}
 
@@ -195,7 +205,7 @@ class RequestDonate extends React.Component {
           <h3>Pantry {this.state.number} Route</h3>
           <ul>{stops}</ul>
 
-          <MapComponent stops={this.state.stops} />
+          <Map stops={this.state.stops} />
         </main>
       );
     }
