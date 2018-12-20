@@ -81,8 +81,10 @@ export default class Form extends React.Component {
 
         <div className={styles.container}>
 
+        
+
         <form className={styles.form} onSubmit={this.handleSubmit} >
-  
+        <h1>Sign up for fooDriver!</h1>
         <label className={styles.label} for='first'>First:</label>
         <input className={styles.input} name='first' placeholder = 'First Name' type='text' onChange={this.firstNameChange} required/>
   

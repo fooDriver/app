@@ -7,14 +7,14 @@
   margin: 0;
   padding: 20px;
   text-align: right;
-  width: 100vw;
+  width: 100%;
 
   li {
     display: inline;
     margin: 50px;
 
     a {
-      color: $color-primary;
+      color: $color-secondary;
       text-decoration: none;
 
       &:hover {
