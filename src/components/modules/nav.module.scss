@@ -29,16 +29,35 @@
 
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: .9fr 1.1fr;
     grid-template-areas: 'left right';
     background-color: $color-text;
     color: $color-primary;
   
     .nav{
       grid-area: right;
+      
+
+      .menu {
+        display: none;
+        font-size: 50px;
+        border: none;
+        background: none;
+        border-bottom: 3px solid $color-text-outline;
+      }
+
+      .list {
+        display: none;
+        padding-inline-start: 0px;
+      }
+
+      .menu:checked ~.list {
+        display: block;
+        
+      }
 
       li {
-        display: inline;
+        list-style-type: none;
 
         a {
           color: $color-secondary;
@@ -48,6 +67,25 @@
             color: $color-accent;
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 'left center right';
+    .nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      button {
+        display: none;
+      }
+
+      li {
+        text-align: center;
       }
     }
   }
