@@ -1,25 +1,53 @@
 @import '../styles/variables';
 
-.nav {
-  background-color: $color-text;
-  color: $color-primary;
-  display: inline-block;
-  margin: 0;
-  padding: 20px;
-  text-align: right;
-  width: 100%;
+// .nav {
+//   background-color: $color-text;
+//   color: $color-primary;
+//   display: inline-block;
+//   margin: 0;
+//   padding: 20px;
+//   text-align: right;
+//   width: 100%;
 
-  li {
-    display: inline;
-    margin: 50px;
+//   li {
+//     display: inline;
+//     margin: 50px;
 
-    a {
-      color: $color-secondary;
-      text-decoration: none;
+//     a {
+//       color: $color-secondary;
+//       text-decoration: none;
 
-      &:hover {
-        background-color: $color-accent;
-        padding: 10px;
+//       &:hover {
+//         background-color: $color-accent;
+//         padding: 10px;
+//       }
+//     }
+//   }
+// }
+
+@media screen and (min-width: 320px) {
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'left right';
+    background-color: $color-text;
+    color: $color-primary;
+  
+    .nav{
+      grid-area: right;
+
+      li {
+        display: inline;
+
+        a {
+          color: $color-secondary;
+          text-decoration: none;
+    
+          &:hover {
+            color: $color-accent;
+          }
+        }
       }
     }
   }
