@@ -15,44 +15,49 @@ class Nav extends React.Component {
       <LoginContext.Consumer>
         {context => {
           return (
-            <ul className={styles.nav}>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <Auth capability="driver">
+            <div className={styles.container}>
+              
+              <ul className={styles.nav}>
+              <input type="checkbox" id="hamburger" name="hamburger" />
+              <label for="hamburger" class="fas fa-bars"></label>
                 <li>
-                  <Link to='/driver'>Driver</Link>
+                  <Link to="/">Home</Link>
                 </li>
-              </Auth>
-              <Auth capability="client">
                 <li>
-                  <Link to='/client'>Client</Link>
+                  <Link to="/about">About</Link>
                 </li>
-              </Auth>
-              <Auth capability="donator">
-                <li>
-                  <Link to='/donator'>Donator</Link>
-                </li>
-              </Auth>
-              <If condition={!context.loggedIn}>
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
-              </If>
-              <Auth>
-                <li>
-                  <Link to='/logout'>Logout</Link>
-                </li>
-              </Auth>
-              <If condition={!context.loggedIn}>
-                <li>
-                  <Link to="/signup">Sign Up</Link>
-                </li>
-              </If>
-            </ul>
+                <Auth capability="driver">
+                  <li>
+                    <Link to='/driver'>Driver</Link>
+                  </li>
+                </Auth>
+                <Auth capability="client">
+                  <li>
+                    <Link to='/client'>Client</Link>
+                  </li>
+                </Auth>
+                <Auth capability="donator">
+                  <li>
+                    <Link to='/donator'>Donator</Link>
+                  </li>
+                </Auth>
+                <If condition={!context.loggedIn}>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
+                </If>
+                <Auth>
+                  <li>
+                    <Link to='/logout'>Logout</Link>
+                  </li>
+                </Auth>
+                <If condition={!context.loggedIn}>
+                  <li>
+                    <Link to="/signup">Sign Up</Link>
+                  </li>
+                </If>
+              </ul>
+            </div>
           )
         }}
       </LoginContext.Consumer>
