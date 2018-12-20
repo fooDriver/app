@@ -16,10 +16,11 @@ class Nav extends React.Component {
         {context => {
           return (
             <div className={styles.container}>
-              
-              <ul className={styles.nav}>
-              <input type="checkbox" id="hamburger" name="hamburger" />
-              <label for="hamburger" class="fas fa-bars"></label>
+            
+              <div className={styles.nav}>
+              <input type='checkbox' id='menu' className={styles.menu} />
+              <label for='menu'>Menu</label>
+              <ul className={styles.list}>
                 <li>
                   <Link to="/">Home</Link>
                 </li>
@@ -57,6 +58,7 @@ class Nav extends React.Component {
                   </li>
                 </If>
               </ul>
+              </div>
             </div>
           )
         }}
