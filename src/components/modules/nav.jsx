@@ -19,6 +19,9 @@ class Nav extends React.Component {
               <li>
                 <Link to="/">Home</Link>
               </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
               <Auth capability="driver">
                 <li>
                   <Link to='/driver'>Driver</Link>
@@ -34,9 +37,6 @@ class Nav extends React.Component {
                   <Link to='/donator'>Donator</Link>
                 </li>
               </Auth>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
               <If condition={!context.loggedIn}>
                 <li>
                   <Link to="/login">Login</Link>

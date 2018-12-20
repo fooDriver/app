@@ -20,10 +20,10 @@ class App extends Component {
           <div>
             <Nav />
             <Route exact path="/" component={Home} />
+            <Route path='/about' component={About} />
             <Route path='/driver' component={Driver} />
             <Route path='/client' component={RequestDonate} />
             <Route path='/donator' component={RequestDonate} />
-            <Route path='/about' component={About} />
             <Route path="/login" component={Login} />
             <Route path='/logout' component={Logout} />
             <Route path="/signup" component={Signup} />
