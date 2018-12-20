@@ -7,6 +7,7 @@ import LoginContext from './auth/context.js';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import Nav from './modules/nav.jsx';
 import Home from './pages/home.jsx';
+import About from './pages/about.jsx';
 import Logout from './auth/logout.js';
 import Signup from './pages/signup.jsx';
 import About from './pages/about.jsx';
