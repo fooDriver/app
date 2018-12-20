@@ -29,6 +29,7 @@ class LoginProvider extends React.Component {
   };
 
   logout = () => {
+    console.log('LOGGED OUT');
     cookie.remove('auth');
     this.setLoginState(false);
   };

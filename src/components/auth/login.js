@@ -2,6 +2,7 @@ import superagent from 'superagent';
 import querystring from 'querystring';
 import React from 'react';
 import { LoginContext } from './context.js';
+import { Redirect } from 'react-router';
 
 //const API = 'http://localhost:3000';
 const API = 'https://foodriverdb.herokuapp.com';
@@ -28,30 +29,7 @@ class Login extends React.Component {
       .catch(console.error);
   };
 
-  logout = (e, logoutMethodFromProvider) => {
-    logoutMethodFromProvider();
-  };
-
-  googleURL = () => {
-    let googleURL = 'https://accounts.google.com/o/oauth2/v2/auth';
-
-    let options = {
-      client_id:
-        '560654039720-5kmgrmq63ctu07hb8e973t589jio17qf.apps.googleusercontent.com',
-      redirect_uri: 'http://localhost:3000/oauth',
-      scope: 'email openid profile',
-      prompt: 'consent',
-      response_type: 'code',
-    };
-
-    let QueryString = querystring.stringify(options);
-
-    return `${googleURL}?${QueryString}`;
-  };
-
   render() {
-    let authURL = null; //this.googleURL();
-
     return (
       <LoginContext.Consumer>
         {context => {
@@ -59,9 +37,7 @@ class Login extends React.Component {
           return (
             <>
               <If condition={context.loggedIn}>
-                <button onClick={e => this.logout(e, context.logout)}>
-                  Log Out
-                </button>
+                <Redirect to='/' />
               </If>
               <If condition={!context.loggedIn}>
                 <div>
@@ -79,9 +55,6 @@ class Login extends React.Component {
                     />
                     <input type="submit" value="login" />
                   </form>
-                  <If condition={authURL}>
-                    <a href={authURL}>Authorize with Google</a>
-                  </If>
                 </div>
               </If>
             </>

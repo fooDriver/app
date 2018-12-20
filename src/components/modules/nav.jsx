@@ -1,73 +1,64 @@
-import React from 'react';
-import logo from '../../assets/foodriver.png';
-import Home from '../pages/home.jsx';
-import About from '../pages/about.jsx';
-import SignUp from '../pages/signup.jsx';
-// import style from '../nav.module.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-export default class Nav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      clickedHome: true,
-      clickedAbout: false,
-      clickedSignUp: false
-    }
-  }
+import Auth from '../auth/auth.js';
+import { LoginContext } from '../auth/context.js';
 
-  goHome() {
-    console.log('Home Clicked');
-    this.setState({ clickedHome: true, clickedAbout: false, clickedSignUp: false });
-  }
+const If = props => {
+  console.log('TOKEN',props);
+  return !!props.condition ? props.children : null;
+};
 
-  goToAbout() {
-    console.log('About Clicked');
-    this.setState({ clickedAbout: true, clickedHome: false, clickedSignUp: false });
-  }
-
-  goToSignUp() {
-    console.log('SignUp Clicked');
-    this.setState({ clickedSignUp: true, clickedHome: false, clickedAbout:false });
-  }
-
-  render() {
-    if(this.state.clickedHome === true) {
-      return (
-        <React.Fragment>
-          <img src={logo} alt="fooDriver logo" />
-          <button onClick={this.goHome.bind(this)}>Home</button>
-          <button onClick={this.goToAbout.bind(this)}>About</button>
-          <button onClick={this.goToSignUp.bind(this)}>SignUp</button>
-          <Home />
-        </React.Fragment>
-      )
-    }
-    if (this.state.clickedAbout === true) {
-      return (
-        <React.Fragment>
-          <nav>
-            <img src={logo} alt="fooDriver logo" />
-            <button onClick={this.goHome.bind(this)}>Home</button>
-            <button onClick={this.goToAbout.bind(this)}>About</button>
-            <button onClick={this.goToSignUp.bind(this)}>SignUp</button>
-          </nav>
-          <About />
-        </React.Fragment>
-      )
-    }
-
-    if (this.state.clickedSignUp === true) {
-      return (
-        <React.Fragment>
-          <nav>
-            <img src={logo} alt="fooDriver logo" />
-            <button onClick={this.goHome.bind(this)}>Home</button>
-            <button onClick={this.goToAbout.bind(this)}>About</button>
-            <button onClick={this.goToSignUp.bind(this)}>SignUp</button>
-          </nav>
-          <SignUp />
-        </React.Fragment>
-      )
-    }
+class Nav extends React.Component {
+  render () {
+    return (
+      <LoginContext.Consumer>
+        {context => {
+          console.log('Context from nav2', context);
+          return (
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <Auth capability="driver">
+                <li>
+                  <Link to='/driver'>Driver</Link>
+                </li>
+              </Auth>
+              <Auth capability="client">
+                <li>
+                  <Link to='/client'>Client</Link>
+                </li>
+              </Auth>
+              <Auth capability="donator">
+                <li>
+                  <Link to='/donator'>Donator</Link>
+                </li>
+              </Auth>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <If condition={!context.loggedIn}>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+              </If>
+              <Auth>
+                <li>
+                  <Link to='/logout'>Logout</Link>
+                </li>
+              </Auth>
+              <If condition={!context.loggedIn}>
+                <li>
+                  <Link to="/signup">Sign Up</Link>
+                </li>
+              </If>
+            </ul>
+          )
+        }}
+      </LoginContext.Consumer>
+    );
   }
 }
+
+export default Nav;
