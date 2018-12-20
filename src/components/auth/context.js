@@ -1,6 +1,6 @@
 import React from 'react';
 import cookie from 'react-cookies';
-import querystring from 'querystring';
+import querystring from 'querystring'; //eslint-disable-line
 
 export const LoginContext = React.createContext();
 
