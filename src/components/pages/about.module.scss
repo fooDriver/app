@@ -21,39 +21,79 @@
 }
 
 .fooDrive{
-// background-color:blue;
+    
+background-color:blue;
 grid-area:foo;
-
-  
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: auto 1fr;
+grid-template-areas: 
+"h1 h1"
+"p img";
 
   p {
+    grid-area:p;
     color: $color-text;
     word-wrap: break-word;
-    width: 25%;
+    width: 70%;
+    outline:2px dashed red;
+    display:inline-block;
+    margin-top:0px;
+  
+    // margin-left:0px;
+   
   }
 
-
+  img{
+    grid-area:img;
+  }
 }
 
 .easyDonate{
-  // background-color:tomato;
+  background-color:tomato;
   grid-area:donate;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+  "h2 h2"
+  "p img";
 
   p {
+    grid-area:p;
     color: $color-text;
     word-wrap: break-word;
-    width: 25%;
+    width: 70%;
+    outline:2px dashed red;
+    display:inline-block;
+    margin-top:0px;
+  }
+
+  img{
+    grid-area:img;
   }
 }
 
 .easyRequest{
-  // background-color:$color-lines;
+  background-color:$color-lines;
+  color: $color-text;
   grid-area:request;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+  "h2 h2"
+  "p img";
 
   p {
+    grid-area:p;
     color: $color-text;
     word-wrap: break-word;
-    width: 25%;
+    width: 70%;
+    outline:2px dashed red;
+  }
+  img{
+    grid-area:img;
   }
 }
 
