@@ -4,7 +4,8 @@ import { LoginContext } from './context.js';
 import { Redirect } from 'react-router';
 import jwt from 'jsonwebtoken';
 
-//const API = 'http://localhost:3000';
+import styles from './login.module.scss';
+
 const API = 'https://foodriverdb.herokuapp.com';
 
 const If = props => {
@@ -40,7 +41,6 @@ class Login extends React.Component {
   };
 
   render() {
-    console.log('STATE IS',this.state);
     return (
       <LoginContext.Consumer>
         {context => {
@@ -50,20 +50,20 @@ class Login extends React.Component {
                 <Redirect to={this.state.ability} />
               </If>
               <If condition={!context.loggedIn}>
-                <div>
-                  <form onSubmit={e => this.handleSubmit(e, context.login)}>
-                    <input
-                      placeholder="username"
+                <div className={styles.login}>
+                  <h2>fooDriver</h2>
+                  <form className={styles.form} onSubmit={e => this.handleSubmit(e, context.login)}>
+                    <div><label for="username">Username</label><input
                       name="username"
+                      type="text"
                       onChange={this.handleChange}
-                    />
-                    <input
-                      placeholder="password"
+                    /></div>
+                    <div><label for="password">Password</label><input
                       name="password"
                       type="password"
                       onChange={this.handleChange}
-                    />
-                    <input type="submit" value="login" />
+                    /></div>
+                    <div><input type="submit" value="Login" /></div>
                   </form>
                 </div>
               </If>
