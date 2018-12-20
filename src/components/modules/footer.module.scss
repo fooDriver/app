@@ -15,5 +15,19 @@ body{
 .footerName{
   color:white;
   font-size: 200%;
-  margin:2%; 
+  margin:2%;
+}
+
+.rights{
+ color:$color-button-highlight;
+}
+
+.contact::before {
+  content: " | ";
+}
+
+.contact{
+  cursor:pointer;
+  color:#2f302f;
+  margin-left:57%;
 }

@@ -1,0 +1,59 @@
+@import '../styles/variables';
+
+
+.container{
+  
+  // background-image: url('../../assets/hero.jpg');
+  // // position: relative;
+  // opacity: 0.5;
+  // filter: alpha(opacity=50);
+  // width:100%;
+
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  grid-template-rows: auto 1fr 1fr;
+  grid-template-areas:
+    "foo foo"
+    "donate donate"
+    "request request"
+    
+
+}
+
+.fooDrive{
+// background-color:blue;
+grid-area:foo;
+
+  
+
+  p {
+    color: $color-text;
+    word-wrap: break-word;
+    width: 25%;
+  }
+
+
+}
+
+.easyDonate{
+  // background-color:tomato;
+  grid-area:donate;
+
+  p {
+    color: $color-text;
+    word-wrap: break-word;
+    width: 25%;
+  }
+}
+
+.easyRequest{
+  // background-color:$color-lines;
+  grid-area:request;
+
+  p {
+    color: $color-text;
+    word-wrap: break-word;
+    width: 25%;
+  }
+}
+
