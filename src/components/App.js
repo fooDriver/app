@@ -8,6 +8,7 @@ import LoginContext from './auth/context.js';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import Nav from './modules/nav.jsx';
 import Home from './pages/home.jsx';
+import About from './pages/about.jsx';
 import Logout from './auth/logout.js';
 import Signup from './pages/signup.jsx';
 
@@ -25,7 +26,7 @@ class App extends Component {
             <Route path='/driver' component={Driver} />
             <Route path='/client' component={RequestDonate} />
             <Route path='/donator' component={RequestDonate} />
-            <Route path='/about' component={null} />
+            <Route path='/about' component={About} />
             <Route path="/login" component={Login} />
             <Route path='/logout' component={Logout} />
             <Route path="/signup" component={Signup} />
