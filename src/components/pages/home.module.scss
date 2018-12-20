@@ -1,14 +1,14 @@
-.hero-image {
-  width: 100%;
-}
-
-.hero-container {
+.heroContainer {
   position: relative;
   text-align: center;
   width: 100%;
 }
 
-.hero-title {
+.heroImage {
+  width: 100%;
+}
+
+.heroTitle {
   position: absolute;
   top: 25%;
   left: 50%;
@@ -17,7 +17,7 @@
   color: black;
 }
 
-.hero-content {
+.heroContent {
   position: absolute;
   top: 55%;
   left: 50%;
@@ -26,7 +26,7 @@
   width: 70%;
 }
 
-.hero-text {
+.heroText {
   display: inline-block;
   width: 40%;
   vertical-align: top;
@@ -35,21 +35,21 @@
   text-align: left;
 }
 
-.hero-content img {
+.heroContent img {
   display: inline-block;
   width: 40%;
   padding: 5%;
 }
 
-.extra-hero-text {
+.extraHeroText {
   display: none;
 }
 
-.extra-below-text {
+.extraBelowText {
   display: none;
 }
 
-.below-text {
+.belowText {
   display: block;
   text-align: center;
   padding: 0 10%;
@@ -57,7 +57,7 @@
 
 @media screen and (max-width: 800px) {
 
-  .hero-title {
+  .heroTitle {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -66,17 +66,17 @@
     color: black;
   }
 
-  .hero-content {
+  .heroContent {
     display: none;
   }
 
-  .extra-below-text {
+  .extraBelowText {
     display: block;
     text-align: center;
     padding: 0 10%;
   }
 
-  .below-text {
+  .belowText {
     display: block;
     text-align: center;
     padding: 0 10%;
@@ -86,16 +86,16 @@
 
 @media screen and (min-width: 1200px) {
 
-  .extra-hero-text {
+  .extraHeroText {
     display: block;
 
   }
 
-  .extra-below-text {
+  .extraBelowText {
     display: none;
   }
 
-  .below-text {
+  .belowText {
     display: none;
   }
 
