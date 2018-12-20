@@ -4,21 +4,16 @@ body{
   font-family: $font-stack-secondary;
 }
 
-
-
 .footer {
   background-color: $color-secondary;
   height:70px;
-  position:absolute;
   bottom:0;
   width:100%;
   padding-top:2%;
 }
 
-
 .footerName{
   color:white;
   font-size: 200%;
-  margin:2%;
-  
+  margin:2%; 
 }
