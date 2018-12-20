@@ -10,7 +10,6 @@ import Home from './pages/home.jsx';
 import About from './pages/about.jsx';
 import Logout from './auth/logout.js';
 import Signup from './pages/signup.jsx';
-import About from './pages/about.jsx';
 
 class App extends Component {
   render() {
