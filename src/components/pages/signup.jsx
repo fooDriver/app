@@ -1,13 +1,15 @@
 import React from 'react';
-import Form from '../../form/signup.jsx';
+import Form from '../form/signup.jsx';
+
+import styles from '../styles/signedup.module.scss';
 
 export default class SignUp extends React.Component {
   render() {
     return (
-      <React.Fragment>
-        <h1>FooDriver Form Page</h1>
+      <div className={styles.signup}>
+        <h1>Sign up for fooDriver!</h1>
         <Form />
-      </React.Fragment>
+      </div>
     )
   }
 }
