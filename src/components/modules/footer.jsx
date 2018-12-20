@@ -8,7 +8,7 @@ function Footer() {
 
         <span className={styles.footerName}>fooDriver</span>
 
-        <span className={styles.rights}>&copy; fooDrive All Rights reserved</span>
+        <span className={styles.rights}>&copy; fooDriver All Rights Reserved</span>
 
         <span className={styles.contact}>Contact</span>
        
