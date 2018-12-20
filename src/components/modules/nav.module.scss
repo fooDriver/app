@@ -1,0 +1,26 @@
+@import '../styles/variables';
+
+.nav {
+  background-color: $color-text;
+  color: $color-primary;
+  display: inline-block;
+  margin: 0;
+  padding: 20px;
+  text-align: right;
+  width: 100vw;
+
+  li {
+    display: inline;
+    margin: 50px;
+
+    a {
+      color: $color-primary;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $color-accent;
+        padding: 10px;
+      }
+    }
+  }
+}

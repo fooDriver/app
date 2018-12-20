@@ -1,6 +1,5 @@
 import React from 'react';
 import cookie from 'react-cookies';
-import querystring from 'querystring'; //eslint-disable-line
 
 export const LoginContext = React.createContext();
 
@@ -29,7 +28,6 @@ class LoginProvider extends React.Component {
   };
 
   logout = () => {
-    console.log('LOGGED OUT');
     cookie.remove('auth');
     this.setLoginState(false);
   };
