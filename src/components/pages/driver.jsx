@@ -3,7 +3,8 @@ import jwt from 'jsonwebtoken';
 import superagent from 'superagent';
 import Map from '../modules/map.jsx';
 
-//const API = 'http://localhost:3000';
+import styles from './driver.module.scss';
+
 const API = 'https://foodriverdb.herokuapp.com';
 
 class Driver extends React.Component {
@@ -66,7 +67,6 @@ class Driver extends React.Component {
       foundFood.quantity -= 1;
       
       let url = `${API}/driver/quantity/${food._id}`;
-      console.log(url);
       let token = this.getToken('auth');
       
       superagent
@@ -91,7 +91,6 @@ class Driver extends React.Component {
     foundFood.quantity += 1;
     
     let url = `${API}/driver/quantity/${food._id}`;
-    console.log(url);
     let token = this.getToken('auth');
 
     superagent
@@ -107,14 +106,25 @@ class Driver extends React.Component {
   }
   
   render() {
-    console.log(this.state.stops);
     if (!this.state.name) {
       return <h2>Loading...</h2>;
     }
     else {
       return (
-        <React.Fragment>
+        <div className={styles.drive}>
           <h2>Let's Get Moving {this.state.name}!</h2>
+          <div className={styles.pantryItems}>
+          <h3>Your Pantry:</h3>
+          <ul>
+            {this.state.pantry.map((obj) => (
+              <li key={obj._id}>
+                <button onClick={ () => this.decrementClick(obj) }>-</button><span>{obj.quantity}</span><button onClick={ () => this.incrementClick(obj) }>+</button>
+                {obj.food.food}
+              </li>
+            ))}
+          </ul>
+          </div>
+          <div className={styles.pantryRoute}>
           <h3>Your route for the day: {this.state.route}</h3>
           <ul>
             {this.state.stops.map(obj => (
@@ -123,17 +133,11 @@ class Driver extends React.Component {
               </li>
             ))}
           </ul>
-          <h3>Your Pantry:</h3>
-          <ul>
-            {this.state.pantry.map((obj) => (
-              <li key={obj._id}>
-                <button onClick={ () => this.decrementClick(obj) }>-</button>{obj.quantity}<button onClick={ () => this.incrementClick(obj) }>+</button>
-                {obj.food.food}
-              </li>
-            ))}
-          </ul>
-          <Map stops={this.state.stops} />
-        </React.Fragment>
+          </div>
+          <div className={styles.map}>
+            <Map stops={this.state.stops} />
+          </div>
+        </div>
       );
     }
   }
