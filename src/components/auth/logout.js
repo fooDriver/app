@@ -1,7 +1,6 @@
-import superagent from 'superagent';
-import querystring from 'querystring';
 import React from 'react';
 import { LoginContext } from './context.js';
+import { Redirect } from 'react-router-dom';
 
 //const API = 'http://localhost:3000';
 const API = 'https://foodriverdb.herokuapp.com';
@@ -26,6 +25,7 @@ class Logout extends React.Component {
           return (
             <>          
               { context.loggedIn ? this.logout(null, context.logout) : null }
+              <Redirect to='/' />
             </>
           )
         }}

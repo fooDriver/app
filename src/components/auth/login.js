@@ -1,8 +1,8 @@
 import superagent from 'superagent';
-import querystring from 'querystring';
 import React from 'react';
 import { LoginContext } from './context.js';
 import { Redirect } from 'react-router';
+import jwt from 'jsonwebtoken';
 
 //const API = 'http://localhost:3000';
 const API = 'https://foodriverdb.herokuapp.com';
@@ -12,6 +12,13 @@ const If = props => {
 };
 
 class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ability: null,
+    }
+  }
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -22,7 +29,10 @@ class Login extends React.Component {
       .post(`${API}/signin`)
       .auth(this.state.username, this.state.password)
       .then(response => {
-        console.log('response is ',response);
+        let user = jwt.decode(response.text);
+        this.setState({
+          ability: `/${user.capabilities[0]}`,
+        });
         let token = response.text;
         loginMethodFromContext(token);
       })
@@ -30,14 +40,14 @@ class Login extends React.Component {
   };
 
   render() {
+    console.log('STATE IS',this.state);
     return (
       <LoginContext.Consumer>
         {context => {
-          console.log('CTX', context);
           return (
             <>
               <If condition={context.loggedIn}>
-                <Redirect to='/' />
+                <Redirect to={this.state.ability} />
               </If>
               <If condition={!context.loggedIn}>
                 <div>

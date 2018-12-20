@@ -1,22 +1,21 @@
 import React from "react";
+import styles from './nav.module.scss';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Auth from '../auth/auth.js';
 import { LoginContext } from '../auth/context.js';
 
 const If = props => {
-  console.log('TOKEN',props);
   return !!props.condition ? props.children : null;
 };
 
 class Nav extends React.Component {
-  render () {
+  render() {
     return (
       <LoginContext.Consumer>
         {context => {
-          console.log('Context from nav2', context);
           return (
-            <ul>
+            <ul className={styles.nav}>
               <li>
                 <Link to="/">Home</Link>
               </li>
