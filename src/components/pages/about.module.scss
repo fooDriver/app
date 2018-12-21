@@ -3,7 +3,6 @@
 @media screen and (min-width: 320px){
  
   .container{
-    background: url(../../assets/food.jpg);
     margin-bottom:0%;
     display:grid;
     grid-template-columns: 1fr;
@@ -67,12 +66,11 @@
 @media screen and (min-width: 768px) {
 
   .container{
-    columns: gap 10%;;
-    //width:0%;
-    // margin-bottom:0%;
+    // background: url(../../assets/food.jpg);
+
     display:grid;
     grid-template-columns:1fr 1fr;
-    grid-template-rows: auto 1fr 1fr;
+    grid-template-rows: .5fr .5fr .5fr;
     grid-template-areas:
     "foo foo"
     "donate donate"
@@ -91,6 +89,9 @@
       "p img";
 
       h1{
+        font-style: initial;
+        text-shadow: 1px 1px 1px #000;
+                      
         margin-bottom:3%;
       }
     
@@ -105,12 +106,15 @@
        img{
        
           grid-area:img;
-          width: 300px;
-          height: 200px;
-          margin-bottom:10%;
-          border-radius:1em;
+          width: 450px;
+          height: 250px;
+          // margin-bottom:10%;
+          border-radius:.5em;
     
         }
+
+      
+
       }
 
     .fooDriver{
