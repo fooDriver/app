@@ -3,7 +3,6 @@ import Form from '../components/form/signup.jsx';
 import SignupComponent from '../components/pages/signup.jsx';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Request from '../../__mocks__/superagent.js';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Form/Signup>', () => {
@@ -25,7 +24,7 @@ describe('<Component Signup>', () => {
 
 describe('Signup page', () => {
   it('should provide a signup form for the user', () => {
-    const wrapper = shallow(<SignUpComponent />)
-    expect(wrapper.find('Form').exists()).toBeTruthy()
-  })
-})
+    const wrapper = shallow(<SignupComponent />)
+    expect(wrapper.find('Form').exists()).toBeTruthy();
+  });
+});
