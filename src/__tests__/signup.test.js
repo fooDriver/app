@@ -15,6 +15,13 @@ describe('<Form/Signup>', () => {
   });
 });
 
+describe('<Component Signup>', () => {
+  it('should render the header', () => {
+    let app = shallow(<SignupComponent />);
+    expect(app.find('h1').text()).toBe('Sign up for fooDriver!');
+  });
+});
+
 describe('Signup page', () => {
   it('should provide a signup form for the user', () => {
     const wrapper = shallow(<SignupComponent />)

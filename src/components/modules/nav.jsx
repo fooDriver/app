@@ -16,7 +16,7 @@ class Nav extends React.Component {
         {context => {
           return (
             <div className={styles.container}>
-            
+              <h1 className={styles.title}>fooDriver</h1>
               <div className={styles.nav}>
               <input type='checkbox' id='menu' className={styles.menu} />
               <label for='menu'>Menu</label>

@@ -1,114 +1,121 @@
 @import '../styles/variables';
 
-.heroContainer {
-  position: relative;
-  text-align: center;
-  width: 100%;
-}
+@media screen and (min-width: 320px) {
 
-.heroImage {
-  width: 100%;
-}
-
-.heroTitle {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2.2em;
-  color: black;
-}
-
-.heroContent {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: black;
-  width: 70%;
-}
-
-.heroText {
-  display: inline-block;
-  width: 40%;
-  vertical-align: top;
-  padding: 5%;
-  font-size: 1.2em;
-  text-align: left;
-}
-
-.heroContent img {
-  display: inline-block;
-  width: 40%;
-  padding: 5%;
-}
-
-.extraHeroText {
-  display: none;
-}
-
-.extraBelowText {
-  display: none;
-}
-
-.belowText {
-  display: block;
-  text-align: center;
-  padding: 0 10%;
-}
-
-@media screen and (max-width: 800px) {
-
-  .heroTitle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2.2em;
-    color: black;
-  }
-
-  .heroContent {
-    display: none;
-  }
-
-  .extraBelowText {
-    display: block;
-    text-align: center;
-    padding: 0 10%;
-  }
-
-  .belowText {
-    display: block;
-    text-align: center;
-    padding: 0 10%;
-  }
-
-}
-
-@media screen and (min-width: 1300px) {
   .heroContainer {
-    background-color: $color-secondary;
+    background-image: url("../../assets/hero.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: .5fr 2fr .5fr;
+    grid-template-areas: 'left center right';
+    
+    .container {
+      grid-area: center;
+      background-color: rgba(245,245,220,0.6);
+      margin: 5em 0 9.5em 0;
+      padding: 1em 2em 1em 2em;
+      border-radius: 6px;
+      box-shadow: $shadow;
+    }
+
+    .smallTitle{
+      text-align: center;
+      justify-self: center;
+    }
+
+    .bigTitle,
+    .extraHeroText,
+    .extraBelowText,
+    .belowText {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+    }
+  
   }
 
-  .heroText {
-    font-size: 1.7em;
-  }
+}
 
-  .heroTitle {
-    font-size: 4em;
+@media screen and (min-width: 420px) {
+  .container {
+    .heroText {
+      .extraHeroText {
+        display: block;
+      }
+    }
+    img {
+      width: auto;
+    }
   }
+}
 
-  .extraHeroText {
-    display: block;
+
+@media screen and (min-width: 520px) {
+  .container {
+    .smallTitle{
+      display: none;
+    }
+    .bigTitle {
+      display: inline;
+    }
+      
   }
+}
 
-  .extraBelowText {
-    display: none;
+@media screen and (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10% 90%;
+    grid-template-areas:
+      'title title'
+      'content image';
+
+    h1 {
+      grid-area: title;
+    }
+
+    img {
+      grid-area: image;
+      justify-self: center;
+    }
   }
+}
 
-  .belowText {
-    display: none;
+@media screen and (min-width: 1000px) {
+  .heroContainer {
+    padding-top: 2em;
+    padding-bottom: 2em;
   }
+}
 
+@media screen and (min-width: 1200px) {
+  .heroContainer {
+    padding-top: 2.2em;
+    padding-bottom: 2.2em;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .heroContainer {
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .heroContainer {
+    padding-top: 2em;
+    padding-bottom: 3em;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .heroContainer {
+    padding-top: 5em;
+    padding-bottom: 5.40em;
+  }
 }
