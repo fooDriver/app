@@ -3,10 +3,14 @@
 @media screen and (min-width: 320px){
  
   .container{
+    //background-color: rgb(184, 168, 149);
+  // background-color: rgb(217, 206, 194);
+  background-color: rgb(223, 215, 207);
+  // background-color: rgb(214, 195, 181);
     margin-bottom:0%;
     display:grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr 1fr;
+    grid-template-rows: auto .5fr 1fr;
     grid-template-areas:
     "foo"
     "donate"
@@ -36,7 +40,6 @@
     p {
       grid-area:p;
       margin-top:0%;
-
       // overflow: scroll;
 
     }
@@ -55,7 +58,11 @@
     margin-top:10%;
   }
   .easyDonate {
-    grid-area:donate;   
+    grid-area:donate; 
+    img{
+      margin-top:0%;
+    }
+
   }
   
   .easyRequest {
@@ -94,8 +101,7 @@
 
       h1{
         font-style: initial;
-        text-shadow: 1px 1px 1px #000;
-                      
+        // text-shadow: 1px 1px 1px #000;             
         margin-bottom:3%;
       }
     
