@@ -40,7 +40,7 @@
           text-decoration: none;
     
           &:hover {
-            color: $color-accent;
+            color: white;
           }
         }
       }
@@ -53,7 +53,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: 'left center right';
     .nav {
-      
+      padding: 0;
 
       label {
         display: none;
@@ -62,6 +62,7 @@
       .list {
         display: inline;
         display: grid;
+        font-size: x-large;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-areas: 'Home About Login SignUp'
       }
