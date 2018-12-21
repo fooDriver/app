@@ -1,25 +1,86 @@
 @import '../styles/variables';
 
-.nav {
-  background-color: $color-text;
-  color: $color-primary;
-  display: inline-block;
-  margin: 0;
-  padding: 20px;
-  text-align: right;
-  width: 100vw;
+@media screen and (min-width: 320px) {
 
-  li {
-    display: inline;
-    margin: 50px;
+  .container {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    grid-template-areas: 'left right';
+    background-color: $color-text;
+    color: $color-secondary;
+  
+    .nav{
+      grid-area: right;
+      padding: 1em 0 1em 0;
+      
 
-    a {
-      color: $color-primary;
-      text-decoration: none;
+      .menu {
+        display: none;
+        font-size: 50px;
+        border: none;
+        background: none;
+      }
 
-      &:hover {
-        background-color: $color-accent;
-        padding: 10px;
+      .list {
+        display: none;
+        padding-inline-start: 0px;
+      }
+
+      .menu:checked ~.list {
+        display: block;
+        
+      }
+
+      li {
+        list-style-type: none;
+        padding-top: 8px;
+
+        a {
+          color: $color-secondary;
+          text-decoration: none;
+    
+          &:hover {
+            color: $color-accent;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 'left center right';
+    .nav {
+      
+
+      label {
+        display: none;
+      }
+
+      .list {
+        display: inline;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: 'Home About Login SignUp'
+      }
+
+      .list:nth-child(1) {
+        grid-area: Home;
+      }
+      .list:nth-child(2) {
+        grid-area: About;
+      }
+      .list:nth-child(31) {
+        grid-area: Login;
+      }
+      .list:nth-child(4) {
+        grid-area: SignUp;
+      }
+
+      li {
+        text-align: center;
       }
     }
   }

@@ -5,6 +5,8 @@ import Map from "../modules/map";
 
 import Auth from '../auth/auth.js';
 
+import styles from './requestdonate.module.scss';
+
 class RequestDonate extends React.Component {
   constructor(props) {
     super(props);
@@ -44,6 +46,8 @@ class RequestDonate extends React.Component {
         this.setState({ requestItem: "" });
       })
       .catch(console.error);
+    
+    alert('Thank you for your request!')
   };
 
   changeAddress = e => {
@@ -69,6 +73,8 @@ class RequestDonate extends React.Component {
         this.setState({ donationItem: "", address: "" });
       })
       .catch(console.error);
+
+    alert('Thank you for your donation!');
   };
 
   componentDidMount() {
@@ -106,47 +112,7 @@ class RequestDonate extends React.Component {
 
   render() {
     if (this.state.pantries === "" || this.state.stops === "") {
-      return (
-        <main>
-          <Auth capability='client'>
-          <form onSubmit={this.submitRequest}>
-            <label>Make a request</label>
-            <br />
-            <input
-              type="text"
-              placeholder="Enter your request here"
-              value={this.state.requestItem}
-              onChange={this.changeRequest}
-            />
-            <br />
-            <button type="submit">Request!</button>
-          </form>
-          <br />
-          </Auth>
-          <Auth capability='donator'>
-          <form onSubmit={this.submitDonation}>
-            <label>Make a donation</label>
-            <br />
-            <input
-              type="text"
-              placeholder="Enter your address here"
-              value={this.state.address}
-              onChange={this.changeAddress}
-            />
-            <br />
-            <input
-              type="text"
-              placeholder="Enter your donation here"
-              value={this.state.donationItem}
-              onChange={this.changeDonation}
-            />
-            <br />
-            <button type="submit">Donate!</button>
-          </form>
-          <br />
-          </Auth>
-        </main>
-      );
+      return <h2>Loading...</h2>;
     } else {
       let pantryItems = this.state.pantry.pantryItems.map(obj => (
         <li key={obj._id}>
@@ -167,54 +133,54 @@ class RequestDonate extends React.Component {
       ));
 
       return (
-        <main>
+        <div className={styles.request}>
           <Auth capability='client'>
           <form onSubmit={this.submitRequest}>
             <label>Make a request</label>
-            <br />
             <input
               type="text"
               placeholder="Enter your request here"
               value={this.state.requestItem}
               onChange={this.changeRequest}
             />
-            <br />
             <button type="submit">Request!</button>
           </form>
-          <br />
           </Auth>
           <Auth capability='donator'>
           <form onSubmit={this.submitDonation}>
             <label>Make a donation</label>
-            <br />
             <input
               type="text"
               placeholder="Enter your address here"
               value={this.state.address}
               onChange={this.changeAddress}
             />
-            <br />
             <input
               type="text"
               placeholder="Enter your donation here"
               value={this.state.donationItem}
               onChange={this.changeDonation}
             />
-            <br />
             <button type="submit">Donate!</button>
           </form>
-          <br />
           </Auth>
 
-          {pantryButtons}
+          <div className={styles.pantryButtons}>
+            {pantryButtons}
+          </div>
+          <div className={styles.pantryItems}>
+            <h3>Pantry {this.state.number} Items</h3>
+            <ul>{pantryItems}</ul>
+          </div>
+          <div className={styles.pantryRoute}>
+            <h3>Pantry {this.state.number} Route</h3>
+            <ul>{stops}</ul>
+          </div>
+          <div className={styles.map}>
+            <Map stops={this.state.stops} />
+          </div>
 
-          <h3>Pantry {this.state.number} Items</h3>
-          <ul>{pantryItems}</ul>
-          <h3>Pantry {this.state.number} Route</h3>
-          <ul>{stops}</ul>
-
-          <Map stops={this.state.stops} />
-        </main>
+        </div>
       );
     }
   }

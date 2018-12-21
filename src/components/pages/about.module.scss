@@ -1,120 +1,201 @@
 @import '../styles/variables';
 
-
-.container{
-  
-  // background-image: url('../../assets/hero.jpg');
-  // // position: relative;
-  // opacity: 0.5;
-  // filter: alpha(opacity=50);
-  // width:100%;
-  
+@media screen and (min-width: 320px){
+ 
+  .container{
+  background-color: $color-secondary;
+  opacity:.5;
+  width:100%;
+  margin-bottom:2%;
   display:grid;
-  grid-template-columns:2fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto 1fr 1fr;
   grid-template-areas:
-    "foo foo"
-    "donate donate"
-    "request request"
+    "foo"
+    "donate"
+    "request";
+
+  }
+  h1{
+    margin-left:25%;
+    margin-bottom:1%;
+  }
+  .fooDriver{
     
+  grid-area:foo;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto .5fr 1fr;
+  grid-template-areas: 
+  "h1"
+  "p"
+  "img";
 
-}
-
-.fooDrive{
-    
-// background-color:blue;
-grid-area:foo;
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-template-rows: auto 1fr;
-grid-template-areas: 
-"h1 img"
-"p img";
-
-h1{
+p {
+  grid-area:p;
+  margin-top:0%;
   margin-left:25%;
-  margin-bottom:1%;
-}
-  p {
-    color: $color-text;
-    display:inline-block;
-    grid-area:p;
-    margin:auto;
-    margin-top:0%;
-    margin-right:15%;
-    outline:2px dashed red;
-    word-wrap: break-word;
-    width: 60%;
+  outline:1px solid $color-text-outline;
+  overflow: scroll;
+    
   }
 
   img{
     grid-area:img;
     margin:auto;
-    margin-top:5%;
-
+    margin-left:25%;
   }
 }
-h1{
-  margin-left:25%;
-  margin-bottom:1%;
-}
+
 
 .easyDonate{
-  // background-color:tomato;
-  
-  grid-area:donate;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr;
-  grid-template-areas: 
-  "h2 img"
-  "p img";
+ // background-color:blue;
+ grid-area:donate;
+ display: grid;
+ grid-template-columns: 1fr;
+ grid-template-rows: auto .5fr 1fr;
+ grid-template-areas: 
+ "h1"
+ "p"
+ "img";
 
   p {
-    color: $color-text;
-    display:inline-block;
     grid-area:p;
-    margin:auto;
     margin-top:0%;
-    margin-right:15%;
-    outline:2px dashed red;
-    word-wrap: break-word;
-    width: 60%;
+    margin-left:25%;
+    outline:1px solid $color-text-outline;
+    overflow: scroll;
   }
 
   img{
     grid-area:img;
     margin:auto;
-    margin-top:5%;
+    margin-left:25%;
   }
 }
 
 .easyRequest{
- // background-color:$color-lines;
-grid-area:request;
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-template-rows: auto 1fr;
-grid-template-areas: 
-"h1 img"
-"p img";
+ // background-color:blue;
+ grid-area:request;
+ display: grid;
+ grid-template-columns: 1fr;
+ grid-template-rows: auto .5fr 1fr;
+ grid-template-areas: 
+ "h1"
+ "p"
+ "img";
 
 p {
-  color: $color-text;
-  display:inline-block;
   grid-area:p;
-  margin:auto;
-  margin-top:0%;
-  margin-right:15%;
-  outline:2px dashed red;
-  word-wrap: break-word;
-  width: 60%;
+  // margin-top:0%;
+  margin-left:25%;
+  outline:1px solid $color-text-outline;
+  overflow: scroll;
 }
 
  img{
   grid-area:img;
-  margin:auto;
-  margin-top:5%;
+    margin-left:25%;
 }
+
+}
+ 
+}
+
+@media screen and (min-width: 768px) {
+  .container{
+  
+    // background-image: url('../../assets/hero.jpg');
+    // // position: relative;
+    // opacity: 0.5;
+    // filter: alpha(opacity=50);
+    // width:100%;
+    margin-bottom:2%;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    grid-template-areas:
+      "foo foo"
+      "donate donate"
+      "request request"
+  
+  }
+  
+  .fooDriver{
+      
+  // background-color:blue;
+  grid-area:foo;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+  "h1 h1"
+  "p img";
+  
+
+    p {
+      margin-right:15%;
+      outline:0px none;
+      width: 60%;
+    }
+  
+    img{
+      grid-area:img;
+      margin:auto;
+      margin-top:0%;
+  
+    }
+  }
+
+  
+  .easyDonate{
+    // background-color:tomato;
+    
+    grid-area:donate;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    "h1 h1"
+    "p img";
+  
+    p {
+      margin-right:15%;
+      outline:0px none;
+      width: 60%;
+    }
+  
+    img{
+      grid-area:img;
+    margin:auto;
+    margin-top:0%;
+    }
+  }
+  
+  .easyRequest{
+   // background-color:$color-lines;
+  grid-area:request;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+  "h1 h1"
+  "p img";
+  
+  p {
+    margin-right:15%;
+    outline:0px none;
+    width: 60%;
+    
+  }
+  
+   img{
+    grid-area:img;
+    margin:auto;
+    margin-top:0%;
+  }
+  
+  }
+
 }
 

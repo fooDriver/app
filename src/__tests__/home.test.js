@@ -9,4 +9,9 @@ describe('<Home/>', () => {
     let app = shallow(<Home />);
     expect (app.find('span').exists()).toBeTruthy();
   });
+
+  it('should display the company logo', () => {
+    const wrapper = shallow(<Home />)
+    expect(wrapper.find('img').exists()).toBeTruthy()
+  })
 });
