@@ -136,8 +136,7 @@ export default class Form extends React.Component {
 
             </ul>
 
-  
-          <button type='submit'>Sign Me Up</button>
+          <button type='submit'>Sign Up</button>
   
         </form>
         <If condition={this.state.signedup === true}>
