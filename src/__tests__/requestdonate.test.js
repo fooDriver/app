@@ -12,7 +12,7 @@ describe('Request/Donate page', () => {
 
   })
 
-  it('can increment the count when the button is clicked', () => {
+  xit('can increment the count when the button is clicked', () => {
     const wrapper = shallow(<RequestDonate />)
     const incrementButton = wrapper.find('button').first()
     incrementButton.simulate('click')
