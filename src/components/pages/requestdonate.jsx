@@ -133,6 +133,7 @@ class RequestDonate extends React.Component {
       ));
 
       return (
+        <div className={styles.bg}>
         <div className={styles.request}>
           <Auth capability='client'>
           <form onSubmit={this.submitRequest}>
@@ -180,6 +181,7 @@ class RequestDonate extends React.Component {
             <Map stops={this.state.stops} />
           </div>
 
+        </div>
         </div>
       );
     }

@@ -1,6 +1,9 @@
 .drive {
+  background: repeat-y center/100%;
+  background-image: url(../../assets/fruit.jpg);
   color: rgb(47, 48, 47);
-  padding: 10px;
+  margin: -10px;
+  overflow-y: overlay;
 
   h2 {
     margin: 20px auto;
@@ -53,4 +56,16 @@
     margin: 20px auto;
     max-width: 400px;
   }  
+}
+
+@media screen and (max-width: 900px) {
+  .drive{
+    background: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .drive {
+    margin: 0 30px;
+  }
 }
