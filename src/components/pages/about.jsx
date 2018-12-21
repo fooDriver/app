@@ -11,7 +11,7 @@ const About = props => {
   return (
     <React.Fragment>
       <div class={styles.container}>
-      
+
         <section className={styles.fooDriver}>
         <h1>Makes It Easy</h1>
         <p>fooDriver provides a platform to both donator and beneficiary to facilitate the donation process. Lots of food goes wasted for many reasons while there are people in need around us. While there is an  intention but lack of time and interest in commute are the blockers for more donation, fooDriver identifies the needs and makes it easy to donate and make a request for the beneficiary.
