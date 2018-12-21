@@ -61,12 +61,7 @@
     .bigTitle {
       display: inline;
     }
-    .heroText {
-      .extraBelowText {
-        display: block;
-      }
       
-    }
   }
 }
 
@@ -82,44 +77,45 @@
     h1 {
       grid-area: title;
     }
-    
-    .heroText {
-      grid-area: content;
-    }
-    
-    .belowText {
-      display: inline;
-    }
 
     img {
       grid-area: image;
       justify-self: center;
-      // align-self: center;
     }
   }
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1000px) {
   .heroContainer {
-    grid-template-columns: 1fr 1.5fr 1fr;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    background-color: $color-secondary;
+    padding-top: 2em;
+    padding-bottom: 2em;
   }
+}
 
-  .heroText {
-    font-size: 1.7em;
+@media screen and (min-width: 1200px) {
+  .heroContainer {
+    padding-top: 2.2em;
+    padding-bottom: 2.2em;
   }
+}
 
-  .heroTitle {
-    font-size: 4em;
+@media screen and (min-width: 1400px) {
+  .heroContainer {
+    padding-top: 2em;
+    padding-bottom: 2em;
   }
+}
 
-  .extraHeroText {
-    display: block;
+@media screen and (min-width: 1500px) {
+  .heroContainer {
+    padding-top: 2em;
+    padding-bottom: 3em;
   }
+}
 
-  .extraBelowText {
-    display: none;
+@media screen and (min-width: 1800px) {
+  .heroContainer {
+    padding-top: 5em;
+    padding-bottom: 5.40em;
   }
 }

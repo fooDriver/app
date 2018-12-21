@@ -16,10 +16,6 @@ export default class Home extends React.Component {
               <p>We run a fleet of mobile food pantries that delivers food to locations across Seattle.</p>
               <p class={styles.extraHeroText}>If you would like to benefit from this organization, please feel free to sign up!</p>
               <p class={styles.extraHeroText}>After signing up, you will be able to access pantry items and the locations that we currently deliver to.</p>
-              <p class={styles.extraBelowText}>The mission of fooDriver is to provide food to people with low mobility or limited access to nutritious food.</p>
-              <p class={styles.extraBelowText}>We run a fleet of mobile food pantries that delivers food to locations across Seattle.</p>
-              <p class={styles.belowText}>If you would like to benefit from this organization, please feel free to sign up!</p>
-              <p class={styles.belowText}>After signing up, you will be able to access pantry items and the locations that we currently deliver to.</p>
             </div>
             <img src={logo} alt="fooDriver logo image" />
           </div>
@@ -28,19 +24,5 @@ export default class Home extends React.Component {
     )
   }
 }
-
-//<img src={logo} alt="fooDriver logo image" />
-
-// export default class Home extends React.Component {
-//   render() {
-//     return (
-//       <React.Fragment>
-//         <div className={styles.container}>
-
-//         </div>
-//       </React.Fragment>
-//     )
-//   }
-// }
 
 
