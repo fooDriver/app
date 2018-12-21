@@ -8,6 +8,10 @@
     grid-template-areas: 'left right';
     background-color: $color-text;
     color: $color-secondary;
+
+    .title{
+      display: none;
+    }
   
     .nav{
       grid-area: right;
@@ -52,6 +56,17 @@
   .container {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: 'left center right';
+
+    .title {
+      display: inline;
+      grid-area: left;
+      color: white;
+      text-decoration: underline;
+      text-decoration-color: #ed7d32;
+      align-self: center;
+      padding-left: 2em;
+    }
+
     .nav {
       padding: 0;
 
@@ -64,7 +79,8 @@
         display: grid;
         font-size: x-large;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-areas: 'Home About Login SignUp'
+        grid-template-areas: 'Home About Login SignUp';
+        font-size: x-large;
       }
 
       .list:nth-child(1) {
