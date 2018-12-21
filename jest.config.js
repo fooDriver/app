@@ -1,4 +1,4 @@
 module.exports = {
-  setupFiles: ['<rootDir>/__tests__/shim.js',
-  '<rootDir>/__tests__/setup.js'],
+  setupFiles: ['<rootDir>/src/__tests__/shim.js',
+  '<rootDir>/src/__tests__/setup.js'],
 }
