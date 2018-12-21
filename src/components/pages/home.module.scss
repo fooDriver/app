@@ -99,10 +99,27 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1300px) {
   .heroContainer {
     grid-template-columns: 1fr 1.5fr 1fr;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    background-color: $color-secondary;
+  }
+
+  .heroText {
+    font-size: 1.7em;
+  }
+
+  .heroTitle {
+    font-size: 4em;
+  }
+
+  .extraHeroText {
+    display: block;
+  }
+
+  .extraBelowText {
+    display: none;
   }
 }
