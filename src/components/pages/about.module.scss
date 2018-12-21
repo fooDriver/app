@@ -3,11 +3,11 @@
 @media screen and (min-width: 320px){
  
   .container{
-  margin-bottom:2%;
-  display:grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr 1fr;
-  grid-template-areas:
+    margin-bottom:0%;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    grid-template-areas:
     "foo"
     "donate"
     "request";
@@ -18,10 +18,10 @@
     margin-bottom:1%;
   }
   
-  .fooDriver{
+  .fooDriver, .easyDonate, .easyRequest{
     align-content:center;
     display: grid;
-    padding:10%;
+    padding:0% 10% 0% 10%;
     grid-area:foo;
     grid-template-columns: 1fr;
     grid-template-rows: auto .5fr 1fr;
@@ -31,22 +31,21 @@
    "img";
 
     p {
-    grid-area:p;
-    margin-top:0%;
-    outline:1px solid $color-text-outline;
-    overflow: scroll;
-   }
+      grid-area:p;
+      margin-top:0%;
+      // outline:1px solid $color-text-outline;
+      // overflow: scroll;
+    }
 
    img{
-    grid-area:img;
-    // margin:auto;
-    width: 300px;
-    height: 200px;
-   }
+      grid-area:img;
+      width: 300px;
+      height: 200px;
+    }
   }
 
 
-  .easyDonate{
+  .easyDonateXXX{
     align-content:center;
     padding:0% 10% 0% 10%;
     display: grid;
@@ -61,47 +60,47 @@
     p {
       grid-area:p;
       margin-top:0%;
-      outline:1px solid $color-text-outline;
-      overflow: scroll;
+      // outline:1px solid $color-text-outline;
+      // overflow: scroll;
     }
 
-  img{
-
-    grid-area:img;
-    width: 300px;
-    height: 200px;
+    img{
+      grid-area:img;
+      width: 300px;
+      height: 200px;
+    }
   }
-}
 
-.easyRequest{
- 
-  align-content:center;
-  display: grid;
-  margin-bottom:20px;
-  padding:0% 10% 0% 10%;
-  grid-area:request;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto .5fr 1fr;
-  grid-template-areas: 
- "h1"
- "p"
- "img";
+  .easyRequestXXX{
+  
+    align-content:center;
+    display: grid;
+    // margin-bottom:0%;
+    padding:0% 10% 0% 10%;
+    grid-area:request;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto .5fr 1fr;
+    grid-template-areas: 
+    "h1"
+    "p"
+    "img";
 
-p {
-  grid-area:p;
-  margin-top:0%;
-  outline:1px solid $color-text-outline;
-  overflow: scroll;
-}
-//https://www.google.com/search?q=people+in+need&tbm=isch&tbs=rimg:CVEQbckp2QCpIjjINasdg8CSLdNNKXKlkPY36gX1pHyesfNNvqIOfB8dXT_1keHvrxbdu4ly3dPmEos4PpEX5whmHvioSCcg1qx2DwJItEbPfNY4972rvKhIJ000pcqWQ9jcRuxQQVTw-zO4qEgnqBfWkfJ6x8xFinbFSgVcO2CoSCU2-og58Hx1dEXrssC3CPO02KhIJP-R4e-vFt24R0cLgcAuh54kqEgniXLd0-YSizhHqRhPnsIbjkioSCQ-kRfnCGYe-EYm0fUrtLOha&tbo=u&sa=X&ved=2ahUKEwj7hdSIvq_fAhVD7VQKHVg6BJwQ9C96BAgBEBw&biw=1280&bih=690&dpr=2#imgdii=kG-T5MJ0Wyub1M:&imgrc=4ly3dPmEos4PYM:
+    p {
+      grid-area:p;
+      margin-top:0%;
+      // outline:1px solid $color-text-outline;
+      // overflow: scroll;
+    }
 
- img{
-  grid-area:img;
-  width: 300px;
-  height: 200px;
-}
 
-}
+    img{
+      grid-area:img;
+      width: 300px;
+      height: 200px;
+      // margin-bottom:0%;
+    }
+
+  }
  
 }
 
@@ -122,87 +121,70 @@ p {
     "request request"
   
   }
-  
-  .fooDriver{
 
-    grid-area:foo;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr 1fr;
-    grid-template-areas: 
-    "h1 h1"
-    "p img";
-  
+    .fooDriver, .easyDonate, .easyRequest{
 
-  //   p {
-  //      background-color:#eee;
-  //     grid-area:p;
-  //     margin-right:15%;
-  //     outline:0px none;
-  //     width: 60%;
-  //     font-size: 120%;
-  //   }
-  
-  //   img{
-  //     grid-area:img;
-  //     // margin:auto;
-  //     // margin-top:0%;
-  //   }
+      padding-bottom:0%;
+      grid-area:foo;
+      display: grid;
+      // grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0fr 1fr;
+      grid-template-areas: 
+      "h1 h1"
+      "p img";
 
-  }
-
-  
-    // .easyDonate{
-    //   // background-color:tomato;
+      p {
+        grid-area:p;
+       padding-top:1em;
+       padding-right:1em;
+      }
     
-    //   grid-area:donate;
-    //   display: grid;
-    //   grid-template-columns: 1fr 1fr;
-    //   grid-template-rows: 0fr 1fr;
-    //   grid-template-areas: 
-    //   "h1 h1"
-    //   "p img";
-  
-    //   p {
-    //     background-color:#eee;
+    }
+    .easyDonate {
+      grid-area:donate;
+    }
+    .easyRequest {
+      grid-area:request;
+    }
 
-    //     grid-area:p;
-    //     // margin-right:15%;
-    //     outline:0px none;
-    //     // width: 60%;
-    //   }
-  
-    //   img{
-    //   grid-area:img;
-    //   margin:auto;
-    //   margin-top:0%;
-    //   }
-    // }
-  
-    // .easyRequest{
-    //  // background-color:$color-lines;
-    // grid-area:request;
-    // display: grid;
-    // grid-template-columns: 1fr 1fr;
-    // grid-template-rows: auto 1fr;
-    // grid-template-areas: 
-    // "h1 h1"
-    // "p img";
-  
-    // p {
-    //   background-color:#eee;
+    .easyDonateXXX{
+      // padding-bottom:0%;
+      // margin-bottom:0%;
+      grid-area:donate;
+      display: grid;
+      // grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0fr 1fr;
+      grid-template-areas: 
+      "h1 h1"
+      "p img";
 
-    //   margin-right:15%;
-    //   outline:0px none;
-    //   // width: 60%;
-    
-    // }
+      p {
+        grid-area:p;
+       padding-top:1em;
+       padding-right:1em;
+      }
+
+    }
   
-    //  img{
-    //   grid-area:img;
-    //   margin:auto;
-    //   margin-top:0%;
-    // }
+    .easyRequestXXX{
+      padding-top:0%;
+      padding-bottom:10%;
+// margin-bottom:10%;
+      grid-area:request;
+      display: grid;
+      // grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0fr 1fr;
+      grid-template-areas: 
+      "h1 h1"
+      "p img";
+
+      p {
+        grid-area:p;
+       padding-top:1em;
+       padding-right:1em;
+      }
+  
+    }
   
 }
 
