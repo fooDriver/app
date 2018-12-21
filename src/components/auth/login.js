@@ -42,6 +42,7 @@ class Login extends React.Component {
 
   render() {
     return (
+      <div className={styles.loginPage}>
       <LoginContext.Consumer>
         {context => {
           return (
@@ -71,6 +72,7 @@ class Login extends React.Component {
           );
         }}
       </LoginContext.Consumer>
+      </div>
     );
   }
 }

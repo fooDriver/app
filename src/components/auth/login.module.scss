@@ -1,85 +1,103 @@
-.login {
+@import '../styles/variables';
+
+.loginPage {
+  background-image: url("../../assets/bread.jpg");
+  background-size: cover;
   display: grid;
-  grid-template-columns: 80%;
-  align-content: center;
-  align-items: stretch;
-  margin-left: 16%;
-  margin-top: 10%;
-  margin-bottom: 14%;
-  color: rgb(47, 48, 47);
+  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 'top top top'
+    'left center right'
+    'bottom bottom bottom';
 
-  h2 {
-    background-color: rgb(47, 48, 47);
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    padding: 10px;
-    font-size: 24px;
-    line-height: 1.4;
-    margin-bottom: 0px;
-    color: rgb(183, 216, 125);
-  }
-
-  .form {
-    background-color: rgba(191, 175, 156, .4);
-    border: 1px solid rgba(191, 175, 156, .8);
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-
-  .form > div {
-    padding: 5px 0;
-  }
-  
-  input[type="submit"] {
-    border: 1px solid rgba(153, 186, 95, .8);
-    border-radius: 5px;
-    color: #fff;
-    background-color: rgb(153, 186, 95);
-    font-size: 110%;
-    cursor: pointer;
-    padding: 5px 10px;
-  }
-
-  input[type="submit"]:hover {
-    border: 1px solid rgba(123, 156, 65, .8);
-    color: #fff;
-    background-color: rgb(123, 156, 65);
-  }
-  
-  input[type="text"], input[type="password"] {
-    border: 1px solid rgba(123, 156, 65, .8);
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 110%;
-    width: 95%;
-  }
-}
-
-@media (min-width: 650px) {
   .login {
-    grid-template-columns: repeat(2, minmax(150px, 30%));
-    margin-left: 28%;
+    color: rgb(47, 48, 47);
+    grid-area: center;
+    display: grid;
 
-    h2, .form {
-      grid-column-end: span 2;
-      width: auto;
+    h2 {
+      background-color: rgb(47, 48, 47);
+      border: 1px solid rgba(47, 48, 47, .5);
+      border-top-right-radius: 6px;
+      border-top-left-radius: 6px;
+      padding: 10px;
+      font-size: 24px;
+      line-height: 1.4;
+      margin: 0px;
+      color: $color-secondary;
+    }
+
+    .form {
+      background-color: rgb(191, 175, 156);
+      border: 1px solid rgba(191, 175, 156, .5);
+      border-bottom-right-radius: 6px;
+      border-bottom-left-radius: 6px;
+      box-shadow: $shadow;
+      padding: 10px;
     }
 
     .form > div {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      align-items: center;
-    }
-
-    .form > div.actions {
-      grid-template-columns: 1fr 1fr 1fr;
+      padding: 5px 0;
     }
 
     input[type="submit"] {
-      grid-column: 2;
-      width: 40%;
+      background-color: darken($color-secondary, 5%);
+      border: 1px solid darken($color-secondary, 0%);
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 110%;
+      padding: 5px 10px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: darken($color-secondary, 15%);
+      border: 1px solid darken($color-secondary, 10%);
+      color: #fff;
+    }
+
+    input[type="text"], input[type="password"] {
+      border: 1px solid darken($color-secondary, 20%);
+      border-radius: 5px;
+      font-size: 110%;
+      padding: 5px;
+      width: 95%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .loginPage {
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: 1.1fr 1fr 1.1fr;
+    grid-template-areas: 'top top top'
+      'left center right'
+      'bottom bottom bottom';
+
+    .login {
+      display: grid;
+      grid-area: center;
+
+      h2, .form {
+        grid-column-end: span 2;
+        width: auto;
+      }
+
+      .form > div {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        padding: 10px 0;
+      }
+
+      .form > div.actions {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      input[type="submit"] {
+        grid-column: 2;
+        width: 40%;
+      }
     }
   }
 }
