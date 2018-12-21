@@ -28,7 +28,7 @@ class Driver extends React.Component {
   getUser = () => {
     let token = this.getToken('auth');
     let user = jwt.decode(token);
-    return user.id;
+    return user ? user.id : {};
   }
   
   componentDidMount() {
