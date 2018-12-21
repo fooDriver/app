@@ -1,0 +1,10 @@
+@import './styles/variables';
+
+body {
+  font-family: $font-stack-secondary;
+  margin: 0;
+}
+
+.content {
+  min-height: calc(100vh - 90px);
+}

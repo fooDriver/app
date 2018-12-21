@@ -1,3 +1,5 @@
+@import '../styles/variables';
+
 .heroContainer {
   position: relative;
   text-align: center;
@@ -85,10 +87,12 @@
 }
 
 @media screen and (min-width: 1200px) {
+  .heroContainer {
+    background-color: $color-secondary;
+  }
 
   .extraHeroText {
     display: block;
-
   }
 
   .extraBelowText {

@@ -11,13 +11,15 @@ import About from './pages/about.jsx';
 import Logout from './auth/logout.js';
 import Signup from './pages/signup.jsx';
 
+import styles from './App.module.scss';
+
 class App extends Component {
   render() {
     return (
       <React.Fragment>
         <BrowserRouter>
         <LoginContext>
-          <div>
+          <div className={styles.content}>
             <Nav />
             <Route exact path="/" component={Home} />
             <Route path='/about' component={About} />
@@ -27,11 +29,10 @@ class App extends Component {
             <Route path="/login" component={Login} />
             <Route path='/logout' component={Logout} />
             <Route path="/signup" component={Signup} />
-            <Footer />
           </div>
           </LoginContext>
         </BrowserRouter>
-        
+        <Footer />
       </React.Fragment>
     );
   }

@@ -1,33 +1,27 @@
 @import '../styles/variables';
 
-body{
-  font-family: $font-stack-secondary;
-}
-
 .footer {
   background-color: $color-secondary;
-  height:70px;
-  bottom:0;
-  width:100%;
-  padding-top:2%;
+  height: 70px;
+  padding-top: 5px;
+  text-align: center;
+
+  .name {
+    color:white;
+    font-size: 200%;
+    display: block;
+  }
+
+  .rights {
+    color:$color-button-highlight;
+   }
 }
 
-.footerName{
-  color:white;
-  font-size: 200%;
-  margin:2%;
-}
-
-.rights{
- color:$color-button-highlight;
-}
-
-.contact::before {
-  content: " | ";
-}
-
-.contact{
-  cursor:pointer;
-  color:#2f302f;
-  margin-left:57%;
+@media screen and (min-width: 800px) {
+  .footer {
+    .name {
+      display: inline-block;
+      padding: 10px 20px;
+    }
+  }
 }
