@@ -3,9 +3,6 @@
 @media screen and (min-width: 320px){
  
   .container{
-  background-color: $color-secondary;
-  opacity:.5;
-  width:100%;
   margin-bottom:2%;
   display:grid;
   grid-template-columns: 1fr;
@@ -14,188 +11,200 @@
     "foo"
     "donate"
     "request";
-
   }
+
   h1{
-    margin-left:25%;
+    margin-top:1%;
     margin-bottom:1%;
   }
+  
   .fooDriver{
-    
-  grid-area:foo;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto .5fr 1fr;
-  grid-template-areas: 
-  "h1"
-  "p"
-  "img";
+    align-content:center;
+    display: grid;
+    padding:10%;
+    grid-area:foo;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto .5fr 1fr;
+    grid-template-areas: 
+   "h1"
+   "p"
+   "img";
 
-p {
-  grid-area:p;
-  margin-top:0%;
-  margin-left:25%;
-  outline:1px solid $color-text-outline;
-  overflow: scroll;
-    
-  }
-
-  img{
-    grid-area:img;
-    margin:auto;
-    margin-left:25%;
-  }
-}
-
-
-.easyDonate{
- // background-color:blue;
- grid-area:donate;
- display: grid;
- grid-template-columns: 1fr;
- grid-template-rows: auto .5fr 1fr;
- grid-template-areas: 
- "h1"
- "p"
- "img";
-
-  p {
+    p {
     grid-area:p;
     margin-top:0%;
-    margin-left:25%;
     outline:1px solid $color-text-outline;
     overflow: scroll;
+   }
+
+   img{
+    grid-area:img;
+    // margin:auto;
+    width: 300px;
+    height: 200px;
+   }
   }
 
+
+  .easyDonate{
+    align-content:center;
+    padding:0% 10% 0% 10%;
+    display: grid;
+    grid-area:donate;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto .5fr 1fr;
+    grid-template-areas: 
+    "h1"
+    "p"
+    "img";
+
+    p {
+      grid-area:p;
+      margin-top:0%;
+      outline:1px solid $color-text-outline;
+      overflow: scroll;
+    }
+
   img{
+
     grid-area:img;
-    margin:auto;
-    margin-left:25%;
+    width: 300px;
+    height: 200px;
   }
 }
 
 .easyRequest{
- // background-color:blue;
- grid-area:request;
- display: grid;
- grid-template-columns: 1fr;
- grid-template-rows: auto .5fr 1fr;
- grid-template-areas: 
+ 
+  align-content:center;
+  display: grid;
+  margin-bottom:20px;
+  padding:0% 10% 0% 10%;
+  grid-area:request;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto .5fr 1fr;
+  grid-template-areas: 
  "h1"
  "p"
  "img";
 
 p {
   grid-area:p;
-  // margin-top:0%;
-  margin-left:25%;
+  margin-top:0%;
   outline:1px solid $color-text-outline;
   overflow: scroll;
 }
+//https://www.google.com/search?q=people+in+need&tbm=isch&tbs=rimg:CVEQbckp2QCpIjjINasdg8CSLdNNKXKlkPY36gX1pHyesfNNvqIOfB8dXT_1keHvrxbdu4ly3dPmEos4PpEX5whmHvioSCcg1qx2DwJItEbPfNY4972rvKhIJ000pcqWQ9jcRuxQQVTw-zO4qEgnqBfWkfJ6x8xFinbFSgVcO2CoSCU2-og58Hx1dEXrssC3CPO02KhIJP-R4e-vFt24R0cLgcAuh54kqEgniXLd0-YSizhHqRhPnsIbjkioSCQ-kRfnCGYe-EYm0fUrtLOha&tbo=u&sa=X&ved=2ahUKEwj7hdSIvq_fAhVD7VQKHVg6BJwQ9C96BAgBEBw&biw=1280&bih=690&dpr=2#imgdii=kG-T5MJ0Wyub1M:&imgrc=4ly3dPmEos4PYM:
 
  img{
   grid-area:img;
-    margin-left:25%;
+  width: 300px;
+  height: 200px;
 }
 
 }
  
 }
 
+
+
 @media screen and (min-width: 768px) {
+
   .container{
   
-    // background-image: url('../../assets/hero.jpg');
-    // // position: relative;
-    // opacity: 0.5;
-    // filter: alpha(opacity=50);
-    // width:100%;
-    margin-bottom:2%;
+    //width:0%;
+    // margin-bottom:0%;
     display:grid;
-    grid-template-columns:2fr 1fr;
+    grid-template-columns:1fr 1fr;
     grid-template-rows: auto 1fr 1fr;
     grid-template-areas:
-      "foo foo"
-      "donate donate"
-      "request request"
+    "foo foo"
+    "donate donate"
+    "request request"
   
   }
   
   .fooDriver{
-      
-  // background-color:blue;
-  grid-area:foo;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr;
-  grid-template-areas: 
-  "h1 h1"
-  "p img";
-  
 
-    p {
-      margin-right:15%;
-      outline:0px none;
-      width: 60%;
-    }
-  
-    img{
-      grid-area:img;
-      margin:auto;
-      margin-top:0%;
-  
-    }
-  }
-
-  
-  .easyDonate{
-    // background-color:tomato;
-    
-    grid-area:donate;
+    grid-area:foo;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 1fr 1fr;
     grid-template-areas: 
     "h1 h1"
     "p img";
   
-    p {
-      margin-right:15%;
-      outline:0px none;
-      width: 60%;
-    }
+
+  //   p {
+  //      background-color:#eee;
+  //     grid-area:p;
+  //     margin-right:15%;
+  //     outline:0px none;
+  //     width: 60%;
+  //     font-size: 120%;
+  //   }
   
-    img{
-      grid-area:img;
-    margin:auto;
-    margin-top:0%;
-    }
-  }
-  
-  .easyRequest{
-   // background-color:$color-lines;
-  grid-area:request;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr;
-  grid-template-areas: 
-  "h1 h1"
-  "p img";
-  
-  p {
-    margin-right:15%;
-    outline:0px none;
-    width: 60%;
-    
-  }
-  
-   img{
-    grid-area:img;
-    margin:auto;
-    margin-top:0%;
-  }
-  
+  //   img{
+  //     grid-area:img;
+  //     // margin:auto;
+  //     // margin-top:0%;
+  //   }
+
   }
 
+  
+    // .easyDonate{
+    //   // background-color:tomato;
+    
+    //   grid-area:donate;
+    //   display: grid;
+    //   grid-template-columns: 1fr 1fr;
+    //   grid-template-rows: 0fr 1fr;
+    //   grid-template-areas: 
+    //   "h1 h1"
+    //   "p img";
+  
+    //   p {
+    //     background-color:#eee;
+
+    //     grid-area:p;
+    //     // margin-right:15%;
+    //     outline:0px none;
+    //     // width: 60%;
+    //   }
+  
+    //   img{
+    //   grid-area:img;
+    //   margin:auto;
+    //   margin-top:0%;
+    //   }
+    // }
+  
+    // .easyRequest{
+    //  // background-color:$color-lines;
+    // grid-area:request;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+    // grid-template-rows: auto 1fr;
+    // grid-template-areas: 
+    // "h1 h1"
+    // "p img";
+  
+    // p {
+    //   background-color:#eee;
+
+    //   margin-right:15%;
+    //   outline:0px none;
+    //   // width: 60%;
+    
+    // }
+  
+    //  img{
+    //   grid-area:img;
+    //   margin:auto;
+    //   margin-top:0%;
+    // }
+  
 }
+
+
 
