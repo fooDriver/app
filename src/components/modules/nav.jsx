@@ -1,72 +1,70 @@
-import React from 'react';
-import logo from '../../assets/foodriver.png';
-import Home from '../pages/home.jsx';
-import About from '../pages/about.jsx';
-import SignUp from '../pages/signup.jsx';
+import React from "react";
+import styles from './nav.module.scss';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-export default class Nav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      clickedHome: true,
-      clickedAbout: false,
-      clickedSignUp: false
-    }
-  }
+import Auth from '../auth/auth.js';
+import { LoginContext } from '../auth/context.js';
 
-  goHome() {
-    console.log('Home Clicked');
-    this.setState({ clickedHome: true, clickedAbout: false, clickedSignUp: false });
-  }
+const If = props => {
+  return !!props.condition ? props.children : null;
+};
 
-  goToAbout() {
-    console.log('About Clicked');
-    this.setState({ clickedAbout: true, clickedHome: false, clickedSignUp: false });
-  }
-
-  goToSignUp() {
-    console.log('SignUp Clicked');
-    this.setState({ clickedSignUp: true, clickedHome: false, clickedAbout:false });
-  }
-
+class Nav extends React.Component {
   render() {
-    if(this.state.clickedHome === true) {
-      return (
-        <React.Fragment>
-          <img src={logo} alt="fooDriver logo" />
-          <button onClick={this.goHome.bind(this)}>Home</button>
-          <button onClick={this.goToAbout.bind(this)}>About</button>
-          <button onClick={this.goToSignUp.bind(this)}>SignUp</button>
-          <Home />
-        </React.Fragment>
-      )
-    }
-    if (this.state.clickedAbout === true) {
-      return (
-        <React.Fragment>
-          <nav>
-            <img src={logo} alt="fooDriver logo" />
-            <button onClick={this.goHome.bind(this)}>Home</button>
-            <button onClick={this.goToAbout.bind(this)}>About</button>
-            <button onClick={this.goToSignUp.bind(this)}>SignUp</button>
-          </nav>
-          <About />
-        </React.Fragment>
-      )
-    }
-
-    if (this.state.clickedSignUp === true) {
-      return (
-        <React.Fragment>
-          <nav>
-            <img src={logo} alt="fooDriver logo" />
-            <button onClick={this.goHome.bind(this)}>Home</button>
-            <button onClick={this.goToAbout.bind(this)}>About</button>
-            <button onClick={this.goToSignUp.bind(this)}>SignUp</button>
-          </nav>
-          <SignUp />
-        </React.Fragment>
-      )
-    }
+    return (
+      <LoginContext.Consumer>
+        {context => {
+          return (
+            <div className={styles.container}>
+              <h1 className={styles.title}>fooDriver</h1>
+              <div className={styles.nav}>
+              <input type='checkbox' id='menu' className={styles.menu} />
+              <label for='menu'>Menu</label>
+              <ul className={styles.list}>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/about">About</Link>
+                </li>
+                <Auth capability="driver">
+                  <li>
+                    <Link to='/driver'>Driver</Link>
+                  </li>
+                </Auth>
+                <Auth capability="client">
+                  <li>
+                    <Link to='/client'>Client</Link>
+                  </li>
+                </Auth>
+                <Auth capability="donator">
+                  <li>
+                    <Link to='/donator'>Donator</Link>
+                  </li>
+                </Auth>
+                <If condition={!context.loggedIn}>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
+                </If>
+                <Auth>
+                  <li>
+                    <Link to='/logout'>Logout</Link>
+                  </li>
+                </Auth>
+                <If condition={!context.loggedIn}>
+                  <li>
+                    <Link to="/signup">Sign Up</Link>
+                  </li>
+                </If>
+              </ul>
+              </div>
+            </div>
+          )
+        }}
+      </LoginContext.Consumer>
+    );
   }
 }
+
+export default Nav;

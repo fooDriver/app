@@ -1,0 +1,76 @@
+@import '../styles/variables';
+
+@media screen and (min-width:320px) {
+  .signup {
+    background-image: url("../../assets/hero.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+  }
+
+  .container {
+    padding: 1.4em;
+    color: $color-text;
+    margin: 20px;
+
+    .form {
+    border-radius: 6px;
+    box-shadow: $shadow;
+    background-color: rgb(191, 175, 156);
+    display: grid;
+    grid-template-columns: 80%;
+    justify-content: center;
+    align-items: stretch;
+    }
+    
+    .label {
+      margin-top: 1em;
+    }
+
+    .input {
+      border-radius: 6px;
+      margin-top: 1em;
+      border: none;
+      padding: 1em;
+    }
+
+    ul {
+      color: $color-text;
+      padding: 0;
+      list-style-type: none;
+      display: unset;
+    }
+
+    button {
+      color: $color-button-highlight;
+      border-radius: 6px;
+      box-shadow: $shadow;
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 5%;
+      border: none;
+      background-color: #B9D870;
+      padding: .7em 40% .7em 36%;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .signup {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 'left center right';
+  }
+
+  .container {
+    grid-area: center;
+    margin-bottom: 120px;
+  }
+
+  .form {
+
+    h1 {
+      margin: 10% auto 0 auto;
+    }
+  }
+}
+

@@ -1,0 +1,103 @@
+@import '../styles/variables';
+
+.loginPage {
+  background-image: url("../../assets/bread.jpg");
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 'top top top'
+    'left center right'
+    'bottom bottom bottom';
+
+  .login {
+    color: rgb(47, 48, 47);
+    grid-area: center;
+    display: grid;
+
+    h2 {
+      background-color: rgb(47, 48, 47);
+      border: 1px solid rgba(47, 48, 47, .5);
+      border-top-right-radius: 6px;
+      border-top-left-radius: 6px;
+      padding: 10px;
+      font-size: 24px;
+      line-height: 1.4;
+      margin: 0px;
+      color: $color-secondary;
+    }
+
+    .form {
+      background-color: rgb(191, 175, 156);
+      border: 1px solid rgba(191, 175, 156, .5);
+      border-bottom-right-radius: 6px;
+      border-bottom-left-radius: 6px;
+      box-shadow: $shadow;
+      padding: 10px;
+    }
+
+    .form > div {
+      padding: 5px 0;
+    }
+
+    input[type="submit"] {
+      background-color: darken($color-secondary, 5%);
+      border: 1px solid darken($color-secondary, 0%);
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 110%;
+      padding: 5px 10px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: darken($color-secondary, 15%);
+      border: 1px solid darken($color-secondary, 10%);
+      color: #fff;
+    }
+
+    input[type="text"], input[type="password"] {
+      border: 1px solid darken($color-secondary, 20%);
+      border-radius: 5px;
+      font-size: 110%;
+      padding: 5px;
+      width: 95%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .loginPage {
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: 1.1fr 1fr 1.1fr;
+    grid-template-areas: 'top top top'
+      'left center right'
+      'bottom bottom bottom';
+
+    .login {
+      display: grid;
+      grid-area: center;
+
+      h2, .form {
+        grid-column-end: span 2;
+        width: auto;
+      }
+
+      .form > div {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        padding: 10px 0;
+      }
+
+      .form > div.actions {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      input[type="submit"] {
+        grid-column: 2;
+        width: 40%;
+      }
+    }
+  }
+}

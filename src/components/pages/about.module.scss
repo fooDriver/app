@@ -1,0 +1,147 @@
+@import '../styles/variables';
+
+@media screen and (min-width: 320px){
+ 
+  .container{
+    //background-color: rgb(184, 168, 149);
+  // background-color: rgb(217, 206, 194);
+  background-color: rgb(223, 215, 207);
+  // background-color: rgb(214, 195, 181);
+    margin-bottom:0%;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto .5fr 1fr;
+    grid-template-areas:
+    "foo"
+    "donate"
+    "request";
+  }
+
+  .fooDriver, .easyDonate, .easyRequest{
+    padding-left:10%;
+    padding-right:10%;
+    align-content:center;
+    display: grid;
+    grid-area:foo;
+    grid-template-columns: 1fr;
+    grid-template-rows:  0fr 1fr;
+    grid-template-areas: 
+   "h1"
+   "p"
+   "img";
+
+
+   h1{
+    // margin-top:%;
+    margin-bottom:0%;
+
+  }
+
+    p {
+      grid-area:p;
+      margin-top:0%;
+      // overflow: scroll;
+
+    }
+
+   img{
+      grid-area:img;
+      width: 300px;
+      height: 200px;
+      margin-bottom:10%;
+      border-radius:1em;
+
+    }
+  }
+
+  .fooDriver{
+    margin-top:10%;
+  }
+  .easyDonate {
+    grid-area:donate; 
+    img{
+      margin-top:0%;
+    }
+
+  }
+  
+  .easyRequest {
+    grid-area:request;
+    margin-bottom:20%;
+   
+  }
+}
+
+
+
+@media screen and (min-width: 768px) {
+
+  .container{
+    // background: url(../../assets/food.jpg);
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: .5fr .5fr .5fr;
+    grid-template-areas:
+    "foo foo"
+    "donate donate"
+    "request request"
+  
+  }
+
+    .fooDriver, .easyDonate, .easyRequest{
+      
+      grid-area:foo;
+      display: grid;
+      // grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0fr 1fr;
+      grid-template-areas: 
+      "h1 h1"
+      "p img";
+
+      h1{
+        font-style: initial;
+        // text-shadow: 1px 1px 1px #000;             
+        margin-bottom:3%;
+      }
+    
+        p {
+          grid-area:p;
+          margin-top:0%;
+          margin-right:10%;
+          // overflow: scroll;
+          line-height: 200%;
+        }
+    
+       img{
+       
+          grid-area:img;
+          width: 450px;
+          height: 250px;
+          // margin-bottom:10%;
+          border-radius:.5em;
+    
+        }
+
+     
+      }
+
+    .fooDriver{
+      margin-top:2%;
+    }
+
+    .easyDonate {
+      grid-area:donate;
+      // background-color:pink;
+    
+    }
+
+    .easyRequest {
+      grid-area:request;
+      margin-bottom:10%;
+    }
+  
+}
+
+
+
