@@ -3,106 +3,66 @@
 @media screen and (min-width: 320px){
  
   .container{
-  margin-bottom:2%;
-  display:grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr 1fr;
-  grid-template-areas:
+    margin-bottom:0%;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    grid-template-areas:
     "foo"
     "donate"
     "request";
   }
 
-  h1{
-    margin-top:1%;
-    margin-bottom:1%;
-  }
-  
-  .fooDriver{
+  .fooDriver, .easyDonate, .easyRequest{
+    padding-left:10%;
+    padding-right:10%;
     align-content:center;
     display: grid;
-    padding:10%;
     grid-area:foo;
     grid-template-columns: 1fr;
-    grid-template-rows: auto .5fr 1fr;
+    grid-template-rows:  0fr 1fr;
     grid-template-areas: 
    "h1"
    "p"
    "img";
 
-    p {
-    grid-area:p;
-    margin-top:0%;
-    outline:1px solid $color-text-outline;
-    overflow: scroll;
-   }
 
-   img{
-    grid-area:img;
-    // margin:auto;
-    width: 300px;
-    height: 200px;
-   }
+   h1{
+    // margin-top:%;
+    margin-bottom:0%;
+
   }
-
-
-  .easyDonate{
-    align-content:center;
-    padding:0% 10% 0% 10%;
-    display: grid;
-    grid-area:donate;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto .5fr 1fr;
-    grid-template-areas: 
-    "h1"
-    "p"
-    "img";
 
     p {
       grid-area:p;
       margin-top:0%;
-      outline:1px solid $color-text-outline;
-      overflow: scroll;
+
+      // overflow: scroll;
+
     }
 
-  img{
+   img{
+      grid-area:img;
+      width: 300px;
+      height: 200px;
+      margin-bottom:10%;
+      border-radius:1em;
 
-    grid-area:img;
-    width: 300px;
-    height: 200px;
+    }
   }
-}
 
-.easyRequest{
- 
-  align-content:center;
-  display: grid;
-  margin-bottom:20px;
-  padding:0% 10% 0% 10%;
-  grid-area:request;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto .5fr 1fr;
-  grid-template-areas: 
- "h1"
- "p"
- "img";
-
-p {
-  grid-area:p;
-  margin-top:0%;
-  outline:1px solid $color-text-outline;
-  overflow: scroll;
-}
-//https://www.google.com/search?q=people+in+need&tbm=isch&tbs=rimg:CVEQbckp2QCpIjjINasdg8CSLdNNKXKlkPY36gX1pHyesfNNvqIOfB8dXT_1keHvrxbdu4ly3dPmEos4PpEX5whmHvioSCcg1qx2DwJItEbPfNY4972rvKhIJ000pcqWQ9jcRuxQQVTw-zO4qEgnqBfWkfJ6x8xFinbFSgVcO2CoSCU2-og58Hx1dEXrssC3CPO02KhIJP-R4e-vFt24R0cLgcAuh54kqEgniXLd0-YSizhHqRhPnsIbjkioSCQ-kRfnCGYe-EYm0fUrtLOha&tbo=u&sa=X&ved=2ahUKEwj7hdSIvq_fAhVD7VQKHVg6BJwQ9C96BAgBEBw&biw=1280&bih=690&dpr=2#imgdii=kG-T5MJ0Wyub1M:&imgrc=4ly3dPmEos4PYM:
-
- img{
-  grid-area:img;
-  width: 300px;
-  height: 200px;
-}
-
-}
- 
+  .fooDriver{
+    margin-top:10%;
+  }
+  .easyDonate {
+    grid-area:donate;   
+  }
+  
+  .easyRequest {
+    grid-area:request;
+    margin-bottom:20%;
+   
+  }
 }
 
 
@@ -110,99 +70,70 @@ p {
 @media screen and (min-width: 768px) {
 
   .container{
-  
-    //width:0%;
-    // margin-bottom:0%;
+    // background: url(../../assets/food.jpg);
+
     display:grid;
     grid-template-columns:1fr 1fr;
-    grid-template-rows: auto 1fr 1fr;
+    grid-template-rows: .5fr .5fr .5fr;
     grid-template-areas:
     "foo foo"
     "donate donate"
     "request request"
   
   }
-  
-  .fooDriver{
 
-    grid-area:foo;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr 1fr;
-    grid-template-areas: 
-    "h1 h1"
-    "p img";
-  
+    .fooDriver, .easyDonate, .easyRequest{
+      
+      grid-area:foo;
+      display: grid;
+      // grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0fr 1fr;
+      grid-template-areas: 
+      "h1 h1"
+      "p img";
 
-  //   p {
-  //      background-color:#eee;
-  //     grid-area:p;
-  //     margin-right:15%;
-  //     outline:0px none;
-  //     width: 60%;
-  //     font-size: 120%;
-  //   }
-  
-  //   img{
-  //     grid-area:img;
-  //     // margin:auto;
-  //     // margin-top:0%;
-  //   }
-
-  }
-
-  
-    // .easyDonate{
-    //   // background-color:tomato;
+      h1{
+        font-style: initial;
+        text-shadow: 1px 1px 1px #000;
+                      
+        margin-bottom:3%;
+      }
     
-    //   grid-area:donate;
-    //   display: grid;
-    //   grid-template-columns: 1fr 1fr;
-    //   grid-template-rows: 0fr 1fr;
-    //   grid-template-areas: 
-    //   "h1 h1"
-    //   "p img";
-  
-    //   p {
-    //     background-color:#eee;
-
-    //     grid-area:p;
-    //     // margin-right:15%;
-    //     outline:0px none;
-    //     // width: 60%;
-    //   }
-  
-    //   img{
-    //   grid-area:img;
-    //   margin:auto;
-    //   margin-top:0%;
-    //   }
-    // }
-  
-    // .easyRequest{
-    //  // background-color:$color-lines;
-    // grid-area:request;
-    // display: grid;
-    // grid-template-columns: 1fr 1fr;
-    // grid-template-rows: auto 1fr;
-    // grid-template-areas: 
-    // "h1 h1"
-    // "p img";
-  
-    // p {
-    //   background-color:#eee;
-
-    //   margin-right:15%;
-    //   outline:0px none;
-    //   // width: 60%;
+        p {
+          grid-area:p;
+          margin-top:0%;
+          margin-right:10%;
+          // overflow: scroll;
+          line-height: 200%;
+        }
     
-    // }
-  
-    //  img{
-    //   grid-area:img;
-    //   margin:auto;
-    //   margin-top:0%;
-    // }
+       img{
+       
+          grid-area:img;
+          width: 450px;
+          height: 250px;
+          // margin-bottom:10%;
+          border-radius:.5em;
+    
+        }
+
+     
+      }
+
+    .fooDriver{
+      margin-top:2%;
+    }
+
+    .easyDonate {
+      grid-area:donate;
+      // background-color:pink;
+    
+    }
+
+    .easyRequest {
+      grid-area:request;
+      margin-bottom:10%;
+    }
   
 }
 

@@ -69,7 +69,6 @@
 
     .nav {
       padding: 0;
-      
 
       label {
         display: none;
@@ -78,6 +77,7 @@
       .list {
         display: inline;
         display: grid;
+        font-size: x-large;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-areas: 'Home About Login SignUp';
         font-size: x-large;
