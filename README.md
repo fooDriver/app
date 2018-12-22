@@ -31,8 +31,7 @@ MongoDB, Node.js, Express, React
 
 fooDriver is a digital pantry application that uses Javascript-related technologies and frameworks. It uses a MongoDB database to store users (admin, client, donator, driver), pantries, pantry items, item quantities, routes, stops, requests, and donations. It uses Node.js and Express server architecture to serve up the database. The database and server is deployed on Heroku.
 
-The fooDriver web application is a React app created using create-react-app. On the fooDriver web application, you can sign up as either a client, a donator, or a driver.
-You can then login as either a client, a donator, or a driver. The web application is deployed on Amazon S3.
+The fooDriver web application is a React app created using create-react-app. On the fooDriver web application, you can sign up as either a client, a donator, or a driver. You can then login as either a client, a donator, or a driver. The web application is deployed on Amazon S3.
 
 ------
 
