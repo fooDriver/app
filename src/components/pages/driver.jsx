@@ -20,57 +20,44 @@ class Driver extends React.Component {
   };
 
   changeQuantity = (food, change) => {
-    
-  }
-
-  decrementClick = (food) => {
     let clone = [...this.state.pantry];
     let foundFood = clone.find(item => {
       return (item._id === food._id);
     });
-    if (foundFood.quantity === 0) {
-      alert('You cannot have less than 0 items!');
+
+    if (change === 'inc') {
+      foundFood.quantity += 1;
     }
     else {
-      foundFood.quantity -= 1;
-      
-      let url = `${API}/driver/quantity/${food._id}`;
-      let token = this.getToken('auth');
-      
-      superagent
-        .post(url)
-        .send(foundFood)
-        .set('Authorization', `Bearer ${token}`)
-        .then(response => {
-          console.log(response);
-        });
+      if (foundFood.quantity === 0) {
+        alert('You cannot have less than 0 items!');
+      }
+      else {
+        foundFood.quantity -= 1;
+      }
     }
-    this.setState({
-      pantry: clone,
-    });
-    
-  }
-  
-  incrementClick = (food) => {
-    let clone = [...this.state.pantry];
-    let foundFood = clone.find(item => {
-      return (item._id === food._id);
-    });
-    foundFood.quantity += 1;
-    
-    let url = `${API}/driver/quantity/${food._id}`;
-    let token = this.getToken('auth');
 
+    let url = `${API}/driver/quantity/${food._id}`;
+    
     superagent
       .post(url)
       .send(foundFood)
-      .set('Authorization', `Bearer ${token}`)
+      .set('Authorization', `Bearer ${this.context.token}`)
       .then(response => {
         console.log(response);
       });
+
     this.setState({
       pantry: clone,
     });
+  }
+
+  decrementClick = (food) => {
+    this.changeQuantity(food, 'dec');
+  }
+  
+  incrementClick = (food) => {
+    this.changeQuantity(food, 'inc');
   }
   
   componentDidMount() {
