@@ -2,6 +2,7 @@ import React from 'react';
 import jwt from 'jsonwebtoken';
 import superagent from 'superagent';
 import Map from '../modules/map.jsx';
+import { LoginContext } from '../auth/context.js';
 
 import styles from './driver.module.scss';
 
@@ -17,42 +18,9 @@ class Driver extends React.Component {
       stops: [],
     };
   };
-  
-  getToken = (auth) => {
-    let value = "; " + document.cookie;
-    let token = value.split("; " + auth + "=");
-    if (token.length === 2) token = token.pop().split(";").shift();
-    return token;
-  }
-  
-  getUser = () => {
-    let token = this.getToken('auth');
-    let user = jwt.decode(token);
-    return user ? user.id : {};
-  }
-  
-  componentDidMount() {
-    let url = `${API}/driver/driver-routes/${this.getUser()}`;
-    let token = this.getToken('auth');
 
-    superagent
-      .get(url)
-      .set('Authorization', `Bearer ${token}`)
-      .then(response => {
-        let pantry = [];
-        response.body.itemsToSend[1].forEach(item => {
-          let obj = {food: item.food.food, quantity: item.quantity};
-          pantry.push(obj);
-        });
-      
-        this.setState({
-          name: response.body.itemsToSend[0].firstName + ' ' + response.body.itemsToSend[0].lastName,
-          pantry: response.body.itemsToSend[1],
-          route: response.body.itemsToSend[2][0].route.name,
-          stops: response.body.itemsToSend[2],
-        });
-      
-      });
+  changeQuantity = (food, change) => {
+    
   }
 
   decrementClick = (food) => {
@@ -105,6 +73,30 @@ class Driver extends React.Component {
     });
   }
   
+  componentDidMount() {
+    let user = jwt.decode(this.context.token);
+    let url = `${API}/driver/driver-routes/${user.id}`;
+
+    superagent
+      .get(url)
+      .set('Authorization', `Bearer ${this.context.token}`)
+      .then(response => {
+        let pantry = [];
+        response.body.itemsToSend[1].forEach(item => {
+          let obj = {food: item.food.food, quantity: item.quantity};
+          pantry.push(obj);
+        });
+      
+        this.setState({
+          name: response.body.itemsToSend[0].firstName + ' ' + response.body.itemsToSend[0].lastName,
+          pantry: response.body.itemsToSend[1],
+          route: response.body.itemsToSend[2][0].route.name,
+          stops: response.body.itemsToSend[2],
+        });
+      
+      });
+  }
+  
   render() {
     if (!this.state.name) {
       return <h2>Loading...</h2>;
@@ -142,5 +134,7 @@ class Driver extends React.Component {
     }
   }
 };
+
+Driver.contextType = LoginContext;
 
 export default Driver;
