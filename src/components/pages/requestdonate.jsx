@@ -1,9 +1,8 @@
 import React from "react";
 import superagent from "superagent";
-
 import Map from "../modules/map";
-
 import Auth from '../auth/auth.js';
+import { LoginContext } from '../auth/context.js';
 
 import styles from './requestdonate.module.scss';
 
@@ -22,13 +21,6 @@ class RequestDonate extends React.Component {
     };
   }
 
-  getToken = (auth) => {
-    let value = "; " + document.cookie;
-    let token = value.split("; " + auth + "=");
-    if (token.length === 2) token = token.pop().split(";").shift();
-    return token;
-  }
-
   changeRequest = e => {
     this.setState({ requestItem: e.target.value });
   };
@@ -36,12 +28,10 @@ class RequestDonate extends React.Component {
   submitRequest = e => {
     e.preventDefault();
 
-    let token = this.getToken('auth');
-
     let request = { food: this.state.requestItem };
     superagent("post", "https://foodriverdb.herokuapp.com/request")
       .send(request)
-      .set('Authorization', `Bearer ${token}`)
+      .set('Authorization', `Bearer ${this.context.token}`)
       .then(results => {
         this.setState({ requestItem: "" });
       })
@@ -60,7 +50,6 @@ class RequestDonate extends React.Component {
 
   submitDonation = e => {
     e.preventDefault();
-    let token = this.getToken('auth');
 
     let donation = {
       address: this.state.address,
@@ -68,7 +57,7 @@ class RequestDonate extends React.Component {
     };
     superagent("post", "https://foodriverdb.herokuapp.com/donation")
       .send(donation)
-      .set('Authorization', `Bearer ${token}`)
+      .set('Authorization', `Bearer ${this.context.token}`)
       .then(results => {
         this.setState({ donationItem: "", address: "" });
       })
@@ -187,5 +176,7 @@ class RequestDonate extends React.Component {
     }
   }
 }
+
+RequestDonate.contextType = LoginContext;
 
 export default RequestDonate;
