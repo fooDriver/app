@@ -2,6 +2,7 @@ import React from 'react';
 import jwt from 'jsonwebtoken';
 import superagent from 'superagent';
 import Map from '../modules/map.jsx';
+import { LoginContext } from '../auth/context.js';
 
 import styles from './driver.module.scss';
 
@@ -17,27 +18,55 @@ class Driver extends React.Component {
       stops: [],
     };
   };
-  
-  getToken = (auth) => {
-    let value = "; " + document.cookie;
-    let token = value.split("; " + auth + "=");
-    if (token.length === 2) token = token.pop().split(";").shift();
-    return token;
+
+  changeQuantity = (food, change) => {
+    let clone = [...this.state.pantry];
+    let foundFood = clone.find(item => {
+      return (item._id === food._id);
+    });
+
+    if (change === 'inc') {
+      foundFood.quantity += 1;
+    }
+    else {
+      if (foundFood.quantity === 0) {
+        alert('You cannot have less than 0 items!');
+      }
+      else {
+        foundFood.quantity -= 1;
+      }
+    }
+
+    let url = `${API}/driver/quantity/${food._id}`;
+    
+    superagent
+      .post(url)
+      .send(foundFood)
+      .set('Authorization', `Bearer ${this.context.token}`)
+      .then(response => {
+        console.log(response);
+      });
+
+    this.setState({
+      pantry: clone,
+    });
+  }
+
+  decrementClick = (food) => {
+    this.changeQuantity(food, 'dec');
   }
   
-  getUser = () => {
-    let token = this.getToken('auth');
-    let user = jwt.decode(token);
-    return user ? user.id : {};
+  incrementClick = (food) => {
+    this.changeQuantity(food, 'inc');
   }
   
   componentDidMount() {
-    let url = `${API}/driver/driver-routes/${this.getUser()}`;
-    let token = this.getToken('auth');
+    let user = jwt.decode(this.context.token);
+    let url = `${API}/driver/driver-routes/${user.id}`;
 
     superagent
       .get(url)
-      .set('Authorization', `Bearer ${token}`)
+      .set('Authorization', `Bearer ${this.context.token}`)
       .then(response => {
         let pantry = [];
         response.body.itemsToSend[1].forEach(item => {
@@ -53,56 +82,6 @@ class Driver extends React.Component {
         });
       
       });
-  }
-
-  decrementClick = (food) => {
-    let clone = [...this.state.pantry];
-    let foundFood = clone.find(item => {
-      return (item._id === food._id);
-    });
-    if (foundFood.quantity === 0) {
-      alert('You cannot have less than 0 items!');
-    }
-    else {
-      foundFood.quantity -= 1;
-      
-      let url = `${API}/driver/quantity/${food._id}`;
-      let token = this.getToken('auth');
-      
-      superagent
-        .post(url)
-        .send(foundFood)
-        .set('Authorization', `Bearer ${token}`)
-        .then(response => {
-          console.log(response);
-        });
-    }
-    this.setState({
-      pantry: clone,
-    });
-    
-  }
-  
-  incrementClick = (food) => {
-    let clone = [...this.state.pantry];
-    let foundFood = clone.find(item => {
-      return (item._id === food._id);
-    });
-    foundFood.quantity += 1;
-    
-    let url = `${API}/driver/quantity/${food._id}`;
-    let token = this.getToken('auth');
-
-    superagent
-      .post(url)
-      .send(foundFood)
-      .set('Authorization', `Bearer ${token}`)
-      .then(response => {
-        console.log(response);
-      });
-    this.setState({
-      pantry: clone,
-    });
   }
   
   render() {
@@ -142,5 +121,7 @@ class Driver extends React.Component {
     }
   }
 };
+
+Driver.contextType = LoginContext;
 
 export default Driver;
