@@ -2,8 +2,8 @@ import React from 'react';
 import { LoginContext } from './context.js';
 import { Redirect } from 'react-router-dom';
 
-//const API = 'http://localhost:3000';
-const API = 'https://foodriverdb.herokuapp.com';
+const API = 'http://localhost:3000';
+//const API = 'https://foodriverdb.herokuapp.com';
 
 const If = props => {
   return !!props.condition ? props.children : null;

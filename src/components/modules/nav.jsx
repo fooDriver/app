@@ -27,6 +27,11 @@ class Nav extends React.Component {
                 <li>
                   <Link to="/about">About</Link>
                 </li>
+                <Auth capability="admin">
+                  <li>
+                    <Link to='/admin'>Admin</Link>
+                  </li>
+                </Auth>
                 <Auth capability="driver">
                   <li>
                     <Link to='/driver'>Driver</Link>
