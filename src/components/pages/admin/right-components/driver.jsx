@@ -1,16 +1,44 @@
 import React from 'react';
 import superagent from 'superagent';
 import { LoginContext } from '../../../auth/context.js';
+import DriverSchema from '../../../schemas/driver-schema.json';
+import ReactModal from 'react-modal';
+import Form from 'react-jsonschema-form';
 
 const API = 'http://localhost:3000';
 //const API = 'https://foodriverdb.herokuapp.com';
+
+const uiSchema = {
+  "firstName": {
+    "ui:autofocus": true,
+    "ui:emptyValue": ""
+  },
+  "username": {
+    "ui:options": {
+      inputType: 'email'
+    }
+  },
+  "password": {
+    "ui:widget": "password",
+    "ui:help": "Hint: Make it strong!"
+  }
+}
 
 class Driver extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       driver: null,
+      showModal: false,
     };
+  }
+
+  handleOpen = () => {
+    this.setState({showModal: true});
+  }
+
+  handleClose = () => {
+    this.setState({showModal: false});
   }
 
   getDriver = (url) => {
@@ -40,7 +68,21 @@ class Driver extends React.Component {
     }
     return (
       <React.Fragment>
-        <button>Edit User</button>
+        <button onClick={this.handleOpen}>Edit User</button>
+        <ReactModal 
+           isOpen={this.state.showModal}
+           contentLabel="onRequestClose Example"
+           onRequestClose={this.handleClose}
+        >
+          <button onClick={this.handleClose}>Close</button>
+          <Form
+            schema={DriverSchema}
+            uiSchema={uiSchema}
+            formData={this.state.driver}
+          />
+        </ReactModal>
+
+
         <button>Delete User</button>
         <h3>{this.state.driver.firstName} {this.state.driver.lastName}</h3>
         <h4>Username</h4>

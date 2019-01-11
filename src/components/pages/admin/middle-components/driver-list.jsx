@@ -34,6 +34,7 @@ class DriverList extends React.Component {
     return (
       <Router>
         <React.Fragment>
+          <button>Add New Driver</button>
           <h3>Drivers</h3>
           <ul>
             {this.state.drivers.map((obj) => (
