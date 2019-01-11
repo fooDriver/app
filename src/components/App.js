@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Footer from './modules/footer.jsx';
 import RequestDonate from './pages/requestdonate.jsx';
 import Driver from './pages/driver.jsx';
-import AdminRouter from './pages/admin/admin-router.jsx';
+import Admin from './pages/admin/admin.jsx';
 import Login from './auth/login.js';
 import LoginContext from './auth/context.js';
 import { BrowserRouter, Route, Link } from "react-router-dom";
@@ -24,7 +24,7 @@ class App extends Component {
               <Nav />
               <Route exact path="/" component={Home} />
               <Route path='/about' component={About} />
-              <Route path='/admin' component={AdminRouter} />
+              <Route path='/admin' component={Admin} />
               <Route path='/driver' component={Driver} />
               <Route path='/client' component={RequestDonate} />
               <Route path='/donator' component={RequestDonate} />
