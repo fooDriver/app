@@ -6,7 +6,8 @@ import jwt from 'jsonwebtoken';
 
 import styles from './login.module.scss';
 
-const API = 'https://foodriverdb.herokuapp.com';
+const API = 'http://localhost:3000';
+//const API = 'https://foodriverdb.herokuapp.com';
 
 const If = props => {
   return !!props.condition ? props.children : null;
