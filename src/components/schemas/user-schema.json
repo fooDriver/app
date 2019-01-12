@@ -1,6 +1,5 @@
 {
-	"title": "Driver Form",
-	"description": "Add or edit a driver",
+	"title": "Edit User",
 	"type": "object",
 	"required": [
 		"firstName",

@@ -1,7 +1,7 @@
 import React from 'react';
 import superagent from 'superagent';
 import { LoginContext } from '../../../auth/context.js';
-import DriverSchema from '../../../schemas/user-schema.json';
+import DonorSchema from '../../../schemas/user-schema.json';
 import uiSchema from '../../../schemas/user-uiSchema.js';
 import ReactModal from 'react-modal';
 import Form from 'react-jsonschema-form';
@@ -9,11 +9,11 @@ import Form from 'react-jsonschema-form';
 const API = 'http://localhost:3000';
 //const API = 'https://foodriverdb.herokuapp.com';
 
-class Driver extends React.Component {
+class Donor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      driver: null,
+      donor: null,
       showModal: false,
     };
   }
@@ -33,7 +33,7 @@ class Driver extends React.Component {
       .send(form.formData)
       .then(response => {
         this.setState({
-          driver: response.body,
+          donor: response.body,
         });
         this.props.refresh();
         this.handleClose();
@@ -45,37 +45,37 @@ class Driver extends React.Component {
       .delete(`${API}/admin/users/${this.props.match.params.id}`)
       .set('Authorization', `Bearer ${this.context.token}`)
       .then(response => {
-        this.setState({ driver: null })
+        this.setState({ donor: null })
         alert('The user has been deleted');
         this.props.refresh();
         this.handleClose();
       });
   }
 
-  getDriver = (url) => {
+  getDonor = (url) => {
     superagent
       .get(url)
       .set('Authorization', `Bearer ${this.context.token}`)
       .then(response => {
         this.setState({
-          driver: response.body,
+          donor: response.body,
         });
       });
   }
 
   componentDidMount = () => {
-    this.getDriver(`${API}${this.props.match.url}`);
+    this.getDonor(`${API}${this.props.match.url}`);
   }
 
   componentDidUpdate = (prevProps) => {
     if (prevProps !== this.props) {
-      this.getDriver(`${API}${this.props.match.url}`);
+      this.getDonor(`${API}${this.props.match.url}`);
     }
   }
 
   render() {
-    if (!this.state.driver) {
-      return <h3>Please Select a Driver</h3>;
+    if (!this.state.donor) {
+      return <h3>Please Select a Donor</h3>;
     }
     return (
       <React.Fragment>
@@ -91,23 +91,23 @@ class Driver extends React.Component {
         >
           <button onClick={this.handleClose}>Close</button>
           <Form
-            schema={DriverSchema}
+            schema={DonorSchema}
             uiSchema={uiSchema}
-            formData={this.state.driver}
+            formData={this.state.donor}
             onSubmit={this.handleSubmit}
           />
         </ReactModal>
 
-        <h3>{this.state.driver.firstName} {this.state.driver.lastName}</h3>
+        <h3>{this.state.donor.firstName} {this.state.donor.lastName}</h3>
         <h4>Username</h4>
-        <p>{this.state.driver.username}</p>
+        <p>{this.state.donor.username}</p>
         <h4>Role</h4>
-        <p>{this.state.driver.role}</p>
+        <p>{this.state.donor.role}</p>
       </React.Fragment>
     );
   }
 }
 
-Driver.contextType = LoginContext;
+Donor.contextType = LoginContext;
 
-export default Driver;
+export default Donor;
