@@ -1,0 +1,39 @@
+{
+	"title": "Edit User",
+	"type": "object",
+	"required": [
+		"firstName",
+		"lastName",
+		"username",
+		"role"
+	],
+	"properties": {
+		"firstName": {
+			"type": "string",
+			"title": "First name"
+		},
+		"lastName": {
+			"type": "string",
+			"title": "Last name"
+		},
+		"username": {
+			"type": "string",
+			"title": "Username"
+		},
+		"role": {
+			"type": "string",
+			"title": "Role",
+			"enum": [
+				"client",
+				"donator",
+				"driver",
+				"admin"
+			]
+    },
+    "password": {
+      "type": "string",
+      "title": "Password",
+      "minLength": 6
+    }
+	}
+}

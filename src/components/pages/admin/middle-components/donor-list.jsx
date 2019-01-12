@@ -2,51 +2,51 @@ import React from 'react';
 import superagent from 'superagent';
 import { LoginContext } from '../../../auth/context.js';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Driver from '../right-components/driver.jsx';
+import Donor from '../right-components/donor.jsx';
 
 const API = 'http://localhost:3000';
 //const API = 'https://foodriverdb.herokuapp.com';
 
-class DriverList extends React.Component {
+class DonorList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      drivers: null,
+      donors: null,
     };
   }
 
   componentDidMount = () => {
     superagent
-      .get(`${API}/admin/drivers`)
+      .get(`${API}/admin/donors`)
       .set('Authorization', `Bearer ${this.context.token}`)
       .then(response => {
         this.setState({
-          drivers: response.body,
+          donors: response.body,
         });
       });
   }
 
   render() {
-    if (!this.state.drivers) {
+    if (!this.state.donors) {
       return <h3>Loading...</h3>;
     }
 
     return (
       <Router>
         <React.Fragment>
-          <h3>Drivers</h3>
+          <h3>Donors</h3>
           <ul>
-            {this.state.drivers.map((obj) => (
+            {this.state.donors.map((obj) => (
               <li key={obj._id}>
-                <Link to={`/admin/driver-list/${obj._id}`}>
+                <Link to={`/admin/donor-list/${obj._id}`}>
                   {obj.firstName} {obj.lastName}
                 </Link>
               </li>
             ))}
           </ul>
 
-          <Route path='/admin/driver-list/:id'
-            render={(props) => <Driver {...props} refresh={this.componentDidMount} />}
+          <Route path='/admin/donor-list/:id'
+            render={(props) => <Donor {...props} refresh={this.componentDidMount} />}
           />
         </React.Fragment>
       </Router>
@@ -54,6 +54,6 @@ class DriverList extends React.Component {
   }
 }
 
-DriverList.contextType = LoginContext;
+DonorList.contextType = LoginContext;
 
-export default DriverList;
+export default DonorList;
