@@ -82,7 +82,7 @@ class RequestDonate extends React.Component {
         let route1 = results.body.filter(obj => obj.route.name === "Route 1");
         this.setState({
           allStops: results.body,
-          stops: route1
+          stops: route1,
         });
       })
       .catch(console.error);

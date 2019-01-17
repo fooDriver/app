@@ -55,12 +55,12 @@ class Login extends React.Component {
                 <div className={styles.login}>
                   <h2>fooDriver</h2>
                   <form className={styles.form} onSubmit={e => this.handleSubmit(e, context.login)}>
-                    <div><label for="username">Username</label><input
+                    <div><label htmlFor="username">Username</label><input
                       name="username"
                       type="text"
                       onChange={this.handleChange}
                     /></div>
-                    <div><label for="password">Password</label><input
+                    <div><label htmlFor="password">Password</label><input
                       name="password"
                       type="password"
                       onChange={this.handleChange}
