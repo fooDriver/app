@@ -9,6 +9,7 @@ import {
 
 class MapComponent extends React.Component {
   render() {
+    console.log('PROPS', this.props);
     let origin;
     let destination;
     let waypoints = [];

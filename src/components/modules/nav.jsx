@@ -19,7 +19,7 @@ class Nav extends React.Component {
               <h1 className={styles.title}>fooDriver</h1>
               <div className={styles.nav}>
               <input type='checkbox' id='menu' className={styles.menu} />
-              <label for='menu'>Menu</label>
+              <label htmlFor='menu'>Menu</label>
               <ul className={styles.list}>
                 <li>
                   <Link to="/">Home</Link>
