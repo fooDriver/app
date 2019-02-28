@@ -41,7 +41,9 @@ You can then login as either a client, a donator, or a driver. The web applicati
 
 - **Donator** can login and view each pantry, including the pantry items, the pantry route, and the stops along the route. A donator can also fill out a form to make a donation.
 
-- **Driver** can login and view his/her pantry, including the pantry items, the pantry route, and the stops along the route. A driver can also change the quantity of each item in his/her pantry.
+- **Driver** can login and view his/her pantry, including the pantry items, the pantry route, and the stops along the route. A driver can also change the quantity of each item in his/her pantry. Please note, if you signed up as a driver, you will not be assigned a route / pantry. If you would like to login as a functional driverl please sign in as tom@beard.com : tombeard
+
+- **Admin** can login with full CRUD for users, food, pantries, routes, etc. Please note, the admin functionality is ONLY available in staging branch. If you would like to login as a functional admin, please sign in as mary@berry.com : maryberry
 
 ------
 
