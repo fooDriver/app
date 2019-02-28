@@ -1,7 +1,8 @@
 import React from 'react';
 import superagent from 'superagent';
 import { LoginContext } from '../../../auth/context.js';
-import Map from '../map/map.jsx';
+import Map from '../../../modules/map.jsx';
+import NewRouteMap from '../map/map.jsx';
 
 const API = 'http://localhost:3000';
 //const API = 'https://foodriverdb.herokuapp.com';
@@ -45,7 +46,7 @@ class RouteStops extends React.Component {
 
       return (
           <div>
-            <Map stops={this.state.stops} />
+            <NewRouteMap />
           </div>
       );
     }
