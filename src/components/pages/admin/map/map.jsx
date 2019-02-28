@@ -18,7 +18,6 @@ const MyMapComponent = compose(
       this.setState({
         position: null,
         onMarkerMounted: ref => {
-          //console.log('on marker mounted',ref);
           refs.marker = ref;
         },
 
@@ -60,14 +59,14 @@ const MyMapComponent = compose(
   withGoogleMap
 )(props => {
   console.log('PROPS ARE', props);
-  
+
   let movableMarker = <Marker
-      position={{ lat: 47.6062, lng: -122.3321 }}
-      draggable={true}
-      clickable={true}
-      ref={props.onMarkerMounted}
-      onPositionChanged={props.onPositionChanged}
-    />
+    position={{ lat: 47.6062, lng: -122.3321 }}
+    draggable={true}
+    clickable={true}
+    ref={props.onMarkerMounted}
+    onPositionChanged={props.onPositionChanged}
+  />
   return (
     <GoogleMap
       defaultZoom={10}
@@ -84,11 +83,7 @@ const MyMapComponent = compose(
       }
     </GoogleMap>
   )
-  //}
-}
-
-
-)
+});
 
 class MyParentComponentWrapper extends React.PureComponent {
 
@@ -117,20 +112,27 @@ class MyParentComponentWrapper extends React.PureComponent {
     });
   }
 
+  saveRoute = () => {
+    console.log(this.state);
+  }
+
   render() {
     console.log('STATE', this.state);
     return (
       <div>
         <button onClick={this.addNewMarker}>Add New Stop</button>
-        <button onClick={this.saveMarker}>Save Stop</button>
+        {!this.state.isSaved ? 
+          <button onClick={this.saveMarker}>
+            Save Stop
+          </button> : null}
+        {this.state.isSaved ? 
+          <button onClick={this.saveRoute}>
+            Save Route
+          </button> : null}
         <MyMapComponent stops={this.state.stops} newStop={this.state.isSaved} />
       </div>
     )
   }
 }
-
-// goes in mymapcomponent: isMarkerShown={true}
-// goes in front of marker position: props.isMarkerShown && 
-
 
 export default MyParentComponentWrapper;
